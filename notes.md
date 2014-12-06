@@ -1,36 +1,24 @@
+# To_do
 
 
-# Landlord
-name :string
-address :string
-email :string
-phone :integer
+
+
+
+### Landlord
 - 
 have_many properties 
 
-# Tenant 
-name :string
-address :string
-email :string
-phone :integer
-status :string passed, current, potential
+### Tenant 
 - 
 belong to properties
 belongs_to_and_has_many :rents
 
-# Properties
-address :string
-rent :integer
+### Properties
 - 
 belong to landlords
 have many tenants
 
 
-# rent
-ammount
-date
-status
-ref #
-payment method
+### rent
 - 
 belongs_to_and_has_many :tenants
