@@ -1,7 +1,10 @@
 # To_do
 
+- Associate Properties with landlords, when you create a property you are able to associate a landlord. 
 
+- Associate Tenants with properties, when you create a tenant you are able to associate a property. 
 
+- Associate rent_payments with tenants, when you create a rent_payment you are able to associate a tenant. 
 
 
 ### Landlord
