@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ammount: 1
+  date_due: 2014-12-05
+  date_paid: 2014-12-05
+  status: MyString
+  reff: MyString
+  method: MyString
+
+two:
+  ammount: 1
+  date_due: 2014-12-05
+  date_paid: 2014-12-05
+  status: MyString
+  reff: MyString
+  method: MyString

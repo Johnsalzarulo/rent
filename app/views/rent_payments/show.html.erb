@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ammount:</strong>
+  <%= @rent_payment.ammount %>
+</p>
+
+<p>
+  <strong>Date due:</strong>
+  <%= @rent_payment.date_due %>
+</p>
+
+<p>
+  <strong>Date paid:</strong>
+  <%= @rent_payment.date_paid %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @rent_payment.status %>
+</p>
+
+<p>
+  <strong>Reff:</strong>
+  <%= @rent_payment.reff %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @rent_payment.method %>
+</p>
+
+<%= link_to 'Edit', edit_rent_payment_path(@rent_payment) %> |
+<%= link_to 'Back', rent_payments_path %>
