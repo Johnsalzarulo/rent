@@ -69,6 +69,6 @@ class RentPaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_payment_params
-      params.require(:rent_payment).permit(:ammount, :date_due, :date_paid, :status, :reff, :method)
+      params.require(:rent_payment).permit(:ammount, :date_due, :date_paid, :status, :reff, :method, :tenant_id)
     end
 end

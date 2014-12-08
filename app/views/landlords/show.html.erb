@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Details</h2>
 <p>
-  <strong>Name:</strong>
-  <%= @landlord.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
+  <%= @landlord.name %><br>
   <%= @landlord.address %>
 </p>
-
 <p>
-  <strong>Email:</strong>
-  <%= @landlord.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
+  <%= @landlord.email %><br>
   <%= @landlord.phone %>
 </p>
 
+<h2>Properties Owned By <%= @landlord.name %></h2>
+<p>
+	<% @landlord.properties.each do |property| %>
+		<%= link_to property.address, property_path(property.id) %><br>
+	<% end %>
+</p>
+
+<h2>Tenants of <%= @landlord.name %>'s Properties</h2>
+<p>
+	<% @landlord.tenants.all.each do |tenant|  %>
+		<%= link_to tenant.name, tenant_path(tenant.id) %><br>
+	<% end %>
+
+</p>
+
 <%= link_to 'Edit', edit_landlord_path(@landlord) %> |
-<%= link_to 'Back', landlords_path %>
+<%= link_to 'Back', landlords_path %> |
+<td><%= link_to 'Destroy', @landlord, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -35,6 +35,10 @@
     <%= f.label :method %><br>
     <%= f.text_field :method %>
   </div>
+  <div class="field">
+    <%= f.label 'Payment Belongs to:' %><br>
+    <%= collection_select(:rent_payment, :tenant_id, Tenant.all, :id, :name) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

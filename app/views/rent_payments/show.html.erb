@@ -30,5 +30,10 @@
   <%= @rent_payment.method %>
 </p>
 
+<p>
+  <strong>Belongs To:</strong>
+  <%= @rent_payment.tenant.name %>
+</p>
+
 <%= link_to 'Edit', edit_rent_payment_path(@rent_payment) %> |
 <%= link_to 'Back', rent_payments_path %>

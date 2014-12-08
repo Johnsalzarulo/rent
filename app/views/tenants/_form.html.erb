@@ -16,10 +16,6 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
@@ -30,6 +26,10 @@
   <div class="field">
     <%= f.label :status %><br>
     <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label 'Property' %><br>
+    <%= collection_select(:tenant, :property_id, Property.all, :id, :address) %>
   </div>
   <div class="actions">
     <%= f.submit %>

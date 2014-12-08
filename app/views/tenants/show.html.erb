@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tenant.name %>
-</p>
+<h1><%= @tenant.name %><br>
+<h3><%= @tenant.property.address %></h3>
 
 <p>
-  <strong>Address:</strong>
-  <%= @tenant.address %>
+  <%= @tenant.email %><br>
+  <%= @tenant.phone %><br>
+  <%= @tenant.status %><br>
 </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @tenant.email %>
-</p>
+<h3>Rent Payments</h3>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @tenant.phone %>
-</p>
+<table>
+  <tr>
+    <th>Ammount</th>
+    <th>Status</th>
+    <th>Due Date</th>
+  </tr>
+  <% @tenant.rent_payments.each do |payment| %>
+  <tr>
+    <td><%= link_to payment.ammount, rent_payment_path(payment.id) %></td>
+    <td><%= payment.status %></td>
+    <td><%= payment.date_due %></td>
+  </tr>
 
-<p>
-  <strong>Status:</strong>
-  <%= @tenant.status %>
-</p>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_tenant_path(@tenant) %> |
 <%= link_to 'Back', tenants_path %>

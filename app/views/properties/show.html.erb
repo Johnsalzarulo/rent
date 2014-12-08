@@ -15,5 +15,17 @@
   <%= @property.status %>
 </p>
 
+  <strong>Landlord:</strong>
+  <%= @property.landlord.name %>
+</p>
+
+<h2>Rent payments for property</h2>
+<p>
+	<% @property.rent_payments.all.each do |rent|  %>
+		<%= rent.ammount %> is due on <%= rent.date_due %> and is <%= rent.status %>. <br>
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to 'Back', properties_path %>|
+<td><%= link_to 'Delete this property', @property, method: :delete, data: { confirm: 'Are you sure?' } %></td>

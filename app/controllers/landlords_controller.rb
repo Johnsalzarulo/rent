@@ -10,6 +10,7 @@ class LandlordsController < ApplicationController
   # GET /landlords/1
   # GET /landlords/1.json
   def show
+    @properties = Property.all
   end
 
   # GET /landlords/new

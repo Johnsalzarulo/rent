@@ -23,6 +23,11 @@
     <%= f.label :status %><br>
     <%= f.text_field :status %>
   </div>
+  <div class="field">
+    <%= f.label 'Property belongs to:' %><br>
+    <%= collection_select(:property, :landlord_id, Landlord.all, :id, :name) %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
