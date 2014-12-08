@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 
 # My gems
 gem 'pry-rails'
-
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 
 
 # End my gems

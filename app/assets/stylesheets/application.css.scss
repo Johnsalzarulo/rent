@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.btn {
+    border-radius: 0px;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    border-radius: 0px;
+ 	background-image: url("../assets/house.jpg");
+	background-size: cover;
+	color: white;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover{
+    color: inherit;
+    background-color: white;
+}
+
+.navbar-default,
+.navbar{
+	border-radius: 0px;
+	background-color: lightgreen;
+}
+
+.navbar-default .navbar-nav li a {
+	color: black;
+	font-size: 1.25em;
+}

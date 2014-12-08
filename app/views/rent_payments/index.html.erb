@@ -1,6 +1,7 @@
 <h1>Rent Management</h1>
 
-<table>
+<div class="table-responsive">
+<table class="table">
   <thead>
     <tr>
       <th>Tenant</th>
@@ -29,8 +30,9 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 
-<%= link_to 'New Rent payment', new_rent_payment_path %>
+<%= link_to 'New Rent payment', new_rent_payment_path, class:"btn btn-success" %>
+

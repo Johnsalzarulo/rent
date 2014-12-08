@@ -1,22 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
 
+<h2><%= @property.address %> <small>Property Details</small></h2>
 <p>
   <strong>Rent:</strong>
   <%= @property.rent %>
 </p>
-
 <p>
   <strong>Status:</strong>
   <%= @property.status %>
 </p>
-
+<p>
   <strong>Landlord:</strong>
-  <%= @property.landlord.name %>
+  <%= link_to @property.landlord.name, landlord_path(@property.landlord.id) %>
+</p>
+<p>
+  <strong>Tenants:</strong>
+  <% @property.tenants.each do |tenant|%>
+    <%= link_to tenant.name, tenant_path(tenant.id) %><br>
+  <% end %>
 </p>
 
 <h2>Rent payments for property</h2>

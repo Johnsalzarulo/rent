@@ -1,24 +1,9 @@
 <h1>Landlords</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @landlords.each do |landlord| %>
-      <tr>
-        <td><%= landlord.name %></td>
-        <td><%= link_to 'Show', landlord %></td>
-        <td><%= link_to 'Edit', edit_landlord_path(landlord) %></td>
-      </tr>
+        <h3><%= link_to landlord.name, landlord %></h3>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Landlord', new_landlord_path %>
+<%= link_to 'New Landlord', new_landlord_path, class:"btn btn-success"%>

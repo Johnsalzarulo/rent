@@ -1,9 +1,9 @@
 <h1>Properties</h1>
 
     <% @properties.each do |property| %>
-        <%= link_to property.address, property_path(property.id) %><br>
+        <h3><%= link_to property.address, property_path(property.id) %><h3>
     <% end %>
 
 
 <br>
-<%= link_to 'Create a new Property', new_property_path %>
+<%= link_to 'Create a new Property', new_property_path, class:"btn btn-success" %>

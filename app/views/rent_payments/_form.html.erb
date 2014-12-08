@@ -40,6 +40,6 @@
     <%= collection_select(:rent_payment, :tenant_id, Tenant.all, :id, :name) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-success"%>
   </div>
 <% end %>
