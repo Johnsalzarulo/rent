@@ -1,8 +1,13 @@
 <h1>Properties</h1>
 
+	<ul class="list-group">
     <% @properties.each do |property| %>
-        <h3><%= link_to property.address, property_path(property.id) %><h3>
+        <li class="list-group-item">
+        	<h4><%= link_to property.address, property_path(property.id) %>
+        	</h4>
+        </li>
     <% end %>
+	</ul>
 
 
 <br>

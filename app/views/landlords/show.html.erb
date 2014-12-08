@@ -10,18 +10,21 @@
   <%= @landlord.phone %>
 </p>
 
-<h2>Properties Owned By <%= @landlord.name %></h2>
-<p>
+<h3>Properties Owned By <%= @landlord.name %></h3>
+	<ul class="list-group">
 	<% @landlord.properties.each do |property| %>
-		<%= link_to property.address, property_path(property.id) %><br>
+		<li class="list-group-item">
+			<%= link_to property.address, property_path(property.id) %></li>
 	<% end %>
+	</ul>
 </p>
 
-<h2>Tenants of <%= @landlord.name %>'s Properties</h2>
-<p>
+<h3>Tenants of <%= @landlord.name %>'s Properties</h3>
+	<ul class="list-group">
 	<% @landlord.tenants.all.each do |tenant|  %>
-		<%= link_to tenant.name, tenant_path(tenant.id) %><br>
+		<li class="list-group-item"><%= link_to tenant.name, tenant_path(tenant.id) %></li>
 	<% end %>
+	</ul>
 
 </p>
 

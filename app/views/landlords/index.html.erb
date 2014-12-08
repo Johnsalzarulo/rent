@@ -1,8 +1,13 @@
 <h1>Landlords</h1>
 
-    <% @landlords.each do |landlord| %>
-        <h3><%= link_to landlord.name, landlord %></h3>
+<ul class="list-group">
+<% @landlords.each do |landlord| %>
+  <li class="list-group-item">
+  				<span class="badge">Properties: <%= landlord.properties.count %></span>
+  				<span class="badge">Tenants: <%= landlord.tenants.count %></span>
+  	<h4><%= link_to landlord.name, landlord %></h4></li>
     <% end %>
+</ul>
 
 <br>
 
