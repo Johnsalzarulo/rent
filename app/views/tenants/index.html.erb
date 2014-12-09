@@ -3,8 +3,9 @@
   <div class="list-group">
     <% @tenants.each do |tenant| %>
         <div class="list-group-item">
-        <h4><%= tenant.name %></h4>
-        <h5><%= tenant.property.address %></h5>
+            <span class="badge">Issues: <%= tenant.property.issues.count %></span>
+        <h4><%= link_to tenant.name, tenant %></h4>
+        <h5><%= link_to tenant.property.address, tenant.property %></h5>
         <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
         <%= link_to 'Detail', tenant, class:"btn btn-warning btn-xs" %>
         </div>

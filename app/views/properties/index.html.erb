@@ -3,6 +3,7 @@
 	<ul class="list-group">
     <% @properties.each do |property| %>
         <li class="list-group-item">
+        	  				<span class="badge">Issues: <%= property.issues.count %></span>
         	<h4><%= link_to property.address, property_path(property.id) %>
         	</h4>
         </li>
@@ -11,4 +12,4 @@
 
 
 <br>
-<%= link_to 'Create a new Property', new_property_path, class:"btn btn-success" %>
+<%= link_to 'Set Up a new Property', new_property_path, class:"btn btn-success" %>

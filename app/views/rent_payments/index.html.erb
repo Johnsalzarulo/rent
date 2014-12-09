@@ -8,24 +8,18 @@
       <th>Ammount</th>
       <th>Date due</th>
       <th>Status</th>
-      <th>Reff</th>
-      <th>Method</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @rent_payments.each do |rent_payment| %>
       <tr>
-        <td><%= rent_payment.tenant.name %></td>
+        <td><%= link_to rent_payment.tenant.name, tenant_path(rent_payment.tenant.id) %></td>
         <td><%= rent_payment.ammount %></td>
         <td><%= rent_payment.date_due %></td>
         <td><%= rent_payment.status %></td>
-        <td><%= rent_payment.reff %></td>
-        <td><%= rent_payment.method %></td>
-        <td><%= link_to 'Details', rent_payment %></td>
-        <td><%= link_to 'Edit', edit_rent_payment_path(rent_payment) %></td>
-        <td><%= link_to 'Destroy', rent_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Details of this Rent', rent_payment %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,5 +28,5 @@
 <br>
 
 
-<%= link_to 'New Rent payment', new_rent_payment_path, class:"btn btn-success" %>
+<%= link_to 'Enter a Rent Payment', new_rent_payment_path, class:"btn btn-success" %>
 
