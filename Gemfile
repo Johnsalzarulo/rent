@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'pry-rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'twilio-ruby', '~> 3.12'
 
 
 # End my gems

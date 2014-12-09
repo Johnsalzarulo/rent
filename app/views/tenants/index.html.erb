@@ -3,7 +3,7 @@
   <div class="list-group">
     <% @tenants.each do |tenant| %>
         <div class="list-group-item">
-            <span class="badge">Issues: <%= tenant.property.issues.count %></span>
+            <span class="badge"><a href='/issues'>Issues: <%= tenant.property.issues.count %></span></a>
         <h4><%= link_to tenant.name, tenant %></h4>
         <h5><%= link_to tenant.property.address, tenant.property %></h5>
         <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>

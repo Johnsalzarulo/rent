@@ -3,6 +3,9 @@
 <ul class="list-group">
 <% @issues.each do |issue| %>
   <li class="list-group-item">
+  	<span class="badge">
+  		<%= issue.status %>
+  	</span>
   	<h4><%= link_to issue.note, issue %></h4>
   	<p><%= link_to issue.property.address, issue.property %></p>
   		<% issue.property.tenants.each do |tenant| %>

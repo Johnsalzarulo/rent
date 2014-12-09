@@ -3,6 +3,7 @@ class IssuesController < ApplicationController
 
 	def index
 		@issues = Issue.all
+
 	end
 
 	def show
@@ -46,7 +47,7 @@ private
     end
 
     def issue_params
-      params.require(:issue).permit(:note, :property_id)
+      params.require(:issue).permit(:note, :property_id, :status)
     end
 
 end

@@ -1,8 +1,15 @@
 <%=  form_for @issue do |f| %>
+
 <div class="field">
 	<%= f.label :note %>
 	<%= f.text_area :note %>
 </div>
+
+<div class="field">
+  <%= f.label 'Status' %><br>
+  <%= select_tag(:status, options_for_select([['New Issue', 'New Issue'],'In Progress','Completed'])) %>
+</div>
+
 <div class="field">
   <%= f.label 'Property' %><br>
   <%= collection_select(:issue, :property_id, Property.all, :id, :address) %>
@@ -10,6 +17,6 @@
 
 <div class="actions">
     <%= f.submit class:"btn btn-success"%>
-  </div>
+</div>
 
 <% end %>
