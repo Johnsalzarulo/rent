@@ -1,27 +1,13 @@
-# To_do
+# To Do: 
 
-- Associate Properties with landlords, when you create a property you are able to associate a landlord. 
+- Build out authentication against "Landlords" - This is my "user" object. 
 
-- Associate Tenants with properties, when you create a tenant you are able to associate a property. 
+- Build out some type of sub-authentication against "Tenants", they can only view "Issues" and other basic informaiton. These profiles are created when landlords set up a tenant automatically. 
 
-- Associate rent_payments with tenants, when you create a rent_payment you are able to associate a tenant. 
+- Need a "show" for my issues page. 
 
+- Need a way to show / hide items based on thier status. For example I need to hide "issues" that are marked as "complete"
 
-### Landlord
-- 
-have_many properties 
+- Need to update "status" against tenats and against "properties" to do something helpful. 
 
-### Tenant 
-- 
-belong to properties
-belongs_to_and_has_many :rents
-
-### Properties
-- 
-belong to landlords
-have many tenants
-
-
-### rent
-- 
-belongs_to_and_has_many :tenants
+- Do I want to try to manage rent? I might just want to remove this functionality alltogether.
