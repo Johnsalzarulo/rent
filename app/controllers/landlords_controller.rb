@@ -1,6 +1,7 @@
 class LandlordsController < ApplicationController
   before_action :set_landlord, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @landlords = Landlord.all
   end
@@ -47,6 +48,6 @@ class LandlordsController < ApplicationController
     end
 
     def landlord_params
-      params.require(:landlord).permit(:name, :address, :email, :phone)
+      params.require(:landlord).permit(:name, :address, :email, :phone, :password, :password_confirmation)
     end
 end

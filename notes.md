@@ -6,6 +6,8 @@
 
 - Need a "show" for my issues page. 
 
+- Need to add a "Notes" for my issues page, this way people can keep track of issues above just "status" as well, this is where I think I will have the text messaging functionality live, possibly as "Notes" against an issue. 
+
 - Need a way to show / hide items based on thier status. For example I need to hide "issues" that are marked as "complete"
 
 - Need to update "status" against tenats and against "properties" to do something helpful. 
