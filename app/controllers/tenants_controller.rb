@@ -1,5 +1,6 @@
 class TenantsController < ApplicationController
   before_action :set_tenant, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   def index
     @tenants = Tenant.all

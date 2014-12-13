@@ -1,26 +1,28 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   def index
-    @properties = Property.all
+    @properties = current_landlord.properties
   end
 
   def show
   end
 
   def new
-    @property = Property.new
+    @property = current_landlord.properties.new
   end
 
   def edit
   end
 
   def create
-    @property = Property.new(property_params)
+    @property = current_landlord.properties.create(property_params)
+
       if @property.save
         redirect_to @property, notice: 'Property was successfully created.'
       else
-        render :new 
+        render :new, notice: 'oops, check your form, something is not right.'
       end
     end
 
@@ -40,6 +42,7 @@ class PropertiesController < ApplicationController
   end
 
   private
+
     def set_property
       @property = Property.find(params[:id])
     end

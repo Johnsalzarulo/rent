@@ -14,13 +14,13 @@
           <a class="navbar-brand" href="/"><div class="glyphicon glyphicon-home"></div> Rent</a>
         </div>
           <ul class="nav navbar-nav">
-            <li><%=link_to 'Landlords', landlords_path %></li>
+            <% if current_landlord %>
             <li><%=link_to 'Properties', properties_path%></li>
             <li><%=link_to 'Tenants', tenants_path %></li>
             <li><%=link_to 'Rent', rent_payments_path %></li>
             <li><%=link_to 'Issues', issues_path %></li>
-            <% if current_landlord %>
               <li><%= link_to "Logout", '/logout' %></li>
+              <li><%=link_to 'Set Up', current_landlord %></li>
                 <% else %>
                 <li><%= link_to 'Login', '/login' %></li>
                 <li><%= link_to 'Signup', '/signup' %></li>
@@ -28,7 +28,9 @@
           </ul>
       </div>
 </nav>
-
+<% if current_landlord %>
+              You are logged in as: <%= current_landlord.name %>.
+                <% end %>
 
 
 <div class="container">

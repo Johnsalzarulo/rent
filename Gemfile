@@ -8,7 +8,6 @@ gem 'autoprefixer-rails'
 gem 'twilio-ruby', '~> 3.12'
 gem 'bcrypt', '~> 3.1.7'
 
-
 # End my gems
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

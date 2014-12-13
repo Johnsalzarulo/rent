@@ -1,9 +1,9 @@
 class LandlordsController < ApplicationController
   before_action :set_landlord, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authorize, only: [:new, :create]
 
   def index
-    @landlords = Landlord.all
+    @landlords = current_landlord
   end
 
   def show

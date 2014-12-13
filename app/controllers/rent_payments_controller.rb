@@ -1,5 +1,6 @@
 class RentPaymentsController < ApplicationController
   before_action :set_rent_payment, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
 
   def index

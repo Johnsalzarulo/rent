@@ -1,3 +1,5 @@
+<form role="form">
+
 <%= form_for(@property) do |f| %>
   <% if @property.errors.any? %>
     <div id="error_explanation">
@@ -11,24 +13,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <%= f.label 'Full Address of Property' %><br>
+    <%= f.text_field :address, class:"form-control", required:"true" %>
   </div>
-  <div class="field">
-    <%= f.label :rent %><br>
-    <%= f.number_field :rent %>
+  <div class="form-group">
+    <%= f.label 'Monthly Rent' %><br>
+    <%= f.number_field :rent, class:"form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label 'Property belongs to:' %><br>
-    <%= collection_select(:property, :landlord_id, Landlord.all, :id, :name) %>
+    <%= f.select :status, [["Occupied","occupied"],["Vacant","vacant"],["Under Renovation","under renovation"]],{},{class: 'form-control'} %>
   </div>
   
-  <div class="actions">
-    <%= f.submit class:"btn btn-success"%>
+  <div class="form-group">
+    <%= f.submit class:"btn btn-default"%>
   </div>
 <% end %>
+
+</form>
