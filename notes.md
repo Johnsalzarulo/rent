@@ -1,6 +1,6 @@
 # To Do: 
 
-- Build out authentication against "Landlords" - This is my "user" object. 
+- Need to add validations to everything. 
 
 - Build out some type of sub-authentication against "Tenants", they can only view "Issues" and other basic informaiton. These profiles are created when landlords set up a tenant automatically. 
 

@@ -1,4 +1,4 @@
-<form role="form">
+
 
 <%= form_for(@property) do |f| %>
   <% if @property.errors.any? %>
@@ -23,12 +23,10 @@
   </div>
   <div class="form-group">
     <%= f.label :status %><br>
-    <%= f.select :status, [["Occupied","occupied"],["Vacant","vacant"],["Under Renovation","under renovation"]],{},{class: 'form-control'} %>
+    <%= f.select :status, [["Occupied","Occupied"],["Vacant","Vacant"]],{},{class: 'form-control'} %>
   </div>
   
   <div class="form-group">
     <%= f.submit class:"btn btn-default"%>
   </div>
 <% end %>
-
-</form>

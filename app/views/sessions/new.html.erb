@@ -1,14 +1,24 @@
-<h1>Login</h1>
+<div class="jumbotron">
+
+<h3>Please Login</h3>
 
 <%= form_tag '/login' do %>
 
+<div class="form-group">
   Email: <br>
-  <%= text_field_tag :email %><br>
+  <%= text_field_tag :email, nil, placeholder:'Enter your email... ', class:"form-control"%>
+</div>
+
+<div class="form-group">
   Password: <br>
-  <%= password_field_tag :password %> <br>
+  <%= password_field_tag :password, nil, placeholder:'password... ', class:"form-control" %> <br>
   <br>
+</div>
+
   <div class="actions">
   	<%= submit_tag "Submit", class:"btn" %>
   </div>
 
 <% end %>
+
+</div>

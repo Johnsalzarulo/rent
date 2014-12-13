@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Details</h2>
-<p>
-  <%= @landlord.name %><br>
-  <%= @landlord.address %>
-</p>
-<p>
-  <%= @landlord.email %><br>
-  <%= @landlord.phone %>
-</p>
+<div class="row">
+	<div class="col-lg-4">
+		<div class="well">
+		  <h4><%= @landlord.name %></h4>
+			<%= @landlord.address %><br>
+		  <%= @landlord.email %><br>
+		  <%= @landlord.phone %><br>
+		</div>
+	</div>
+</div>
 
-<h3>Properties Owned By <%= @landlord.name %></h3>
+<h4>Properties Owned By <%= @landlord.name %></h4>
 	<ul class="list-group">
 	<% @landlord.properties.each do |property| %>
 		<li class="list-group-item">
@@ -19,7 +20,7 @@
 	</ul>
 </p>
 
-<h3>Tenants of <%= @landlord.name %>'s Properties</h3>
+<h4>Tenants of <%= @landlord.name %>'s Properties</h4>
 	<ul class="list-group">
 	<% @landlord.tenants.all.each do |tenant|  %>
 		<li class="list-group-item"><%= link_to tenant.name, tenant_path(tenant.id) %></li>
@@ -28,6 +29,6 @@
 
 </p>
 
-<%= link_to 'Edit', edit_landlord_path(@landlord) %> |
-<%= link_to 'Back', landlords_path %> |
-<td><%= link_to 'Destroy', @landlord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="well well-sm center">
+<%= link_to 'Update Profile Information', edit_landlord_path(@landlord) %> 
+</div>

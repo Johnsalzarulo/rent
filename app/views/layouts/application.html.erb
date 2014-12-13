@@ -8,29 +8,33 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/"><div class="glyphicon glyphicon-home"></div> Rent</a>
-        </div>
-          <ul class="nav navbar-nav">
+ <header class="navbar navbar-inverse" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle btn btn-default" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">menu</button>
+      <a href="../" class="navbar-brand"><div class="glyphicon glyphicon-home"></div> Rent</a></a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
             <% if current_landlord %>
-            <li><%=link_to 'Properties', properties_path%></li>
-            <li><%=link_to 'Tenants', tenants_path %></li>
-            <li><%=link_to 'Rent', rent_payments_path %></li>
-            <li><%=link_to 'Issues', issues_path %></li>
+              <li><%=link_to 'Properties', properties_path%></li>
+              <li><%=link_to 'Tenants', tenants_path %></li>
+              <li><%=link_to 'Rent', rent_payments_path %></li>
+              <li><%=link_to 'Issues', issues_path %></li>
               <li><%= link_to "Logout", '/logout' %></li>
-              <li><%=link_to 'Set Up', current_landlord %></li>
-                <% else %>
-                <li><%= link_to 'Login', '/login' %></li>
-                <li><%= link_to 'Signup', '/signup' %></li>
-                <% end %>
+            <% else %>
+              <li><%= link_to 'Login', '/login' %></li>
+              <li><%= link_to 'Signup', '/signup' %></li>
+            <% end %>
           </ul>
-      </div>
-</nav>
-<% if current_landlord %>
-              You are logged in as: <%= current_landlord.name %>.
-                <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_landlord %>
+          <li><%=link_to current_landlord.name, current_landlord %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 
 <div class="container">

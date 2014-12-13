@@ -3,7 +3,7 @@ class TenantsController < ApplicationController
   before_filter :authorize
 
   def index
-    @tenants = Tenant.all
+    @tenants = current_landlord.tenants
   end
 
   def show

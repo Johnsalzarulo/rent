@@ -1,33 +1,41 @@
+
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well">
+      <h4><%= @property.address %></h4>
+    </div>
+  </div>
+</div>
+
+<ul class="list-group">
+
+  <li class="list-group-item">
+    <strong>Monthly Rent: </strong><%= @property.rent %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Status: </strong><%= @property.status %>
+  </li>
+
+    <% @property.tenants.each do |tenant|%>
+    <li class="list-group-item">
+    <strong>Tenant: </strong> <%= link_to tenant.name, tenant_path(tenant.id) %>
+    <% end %>
+    </li>
+
+</ul>
 
 
-<h2><%= @property.address %> <small>Property Details</small></h2>
-<p>
-  <strong>Rent:</strong>
-  <%= @property.rent %>
-</p>
-<p>
-  <strong>Status:</strong>
-  <%= @property.status %>
-</p>
-<p>
-  <strong>Landlord:</strong>
-  <%= link_to @property.landlord.name, landlord_path(@property.landlord.id) %>
-</p>
-<p>
-  <strong>Tenants:</strong>
-  <% @property.tenants.each do |tenant|%>
-    <%= link_to tenant.name, tenant_path(tenant.id) %><br>
-  <% end %>
-</p>
+<h3>Rent payments for property</h3>
 
-<h2>Rent payments for property</h2>
-<p>
 	<% @property.rent_payments.all.each do |rent|  %>
 		<%= rent.ammount %> is due on <%= rent.date_due %> and is <%= rent.status %>. <br>
 	<% end %>
-</p>
+
+<div class="well">
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>|
 <td><%= link_to 'Delete this property', @property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>

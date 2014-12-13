@@ -3,7 +3,8 @@ class PropertiesController < ApplicationController
   before_filter :authorize
 
   def index
-    @properties = current_landlord.properties
+    @active_properties = current_landlord.properties.active
+    @vacant = current_landlord.properties.vacant
   end
 
   def show
