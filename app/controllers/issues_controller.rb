@@ -3,8 +3,10 @@ class IssuesController < ApplicationController
 	before_filter :authorize
 
 	def index
-		@issues = current_landlord.issues
-
+		    @new = current_landlord.issues.new_task
+    		@in_progress = current_landlord.issues.in_progress 
+    		@complete = current_landlord.issues.complete 
+    		@archive = current_landlord.issues.archive 
 	end
 
 	def show
