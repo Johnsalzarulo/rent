@@ -14,10 +14,6 @@
     <strong>Monthly Rent: </strong><%= @property.rent %>
   </li>
 
-  <li class="list-group-item">
-    <strong>Status: </strong><%= @property.status %>
-  </li>
-
     <% @property.tenants.each do |tenant|%>
     <li class="list-group-item">
     <strong>Tenant: </strong> <%= link_to tenant.name, tenant_path(tenant.id) %>

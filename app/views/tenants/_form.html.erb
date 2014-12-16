@@ -29,7 +29,7 @@
   </div>
     <div class="form-group">
     <%= f.label 'Property' %><br>
-    <%= collection_select(:tenant, :property_id, Property.all, :id, :address ,{},{class: 'form-control'})%>
+    <%= collection_select(:tenant, :property_id, current_landlord.properties, :id, :address ,{},{class: 'form-control'})%>
   </div>
   <div class="actions">
     <%= f.submit class:"btn btn-success"%>

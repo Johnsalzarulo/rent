@@ -21,10 +21,6 @@
     <%= f.label 'Monthly Rent' %><br>
     <%= f.number_field :rent, class:"form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :status %><br>
-    <%= f.select :status, [["Occupied","Occupied"],["Vacant","Vacant"]],{},{class: 'form-control'} %>
-  </div>
   
   <div class="form-group">
     <%= f.submit class:"btn btn-default"%>

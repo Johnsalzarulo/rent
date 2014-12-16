@@ -3,7 +3,7 @@ class PropertiesController < ApplicationController
   before_filter :authorize
 
   def index
-    @active_properties = current_landlord.properties.active
+    @occupied = current_landlord.properties.occupied
     @vacant = current_landlord.properties.vacant
   end
 
@@ -49,7 +49,7 @@ class PropertiesController < ApplicationController
     end
 
     def property_params
-      params.require(:property).permit(:address, :rent, :status, :landlord_id)
+      params.require(:property).permit(:address, :rent, :landlord_id)
     end
 
 end

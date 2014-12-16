@@ -1,5 +1,7 @@
 # To Do: 
 
+- I need a way to set only the current users data in all of my forms views. I think this will be with scopes. 
+
 - Need to add validations to everything. 
 
 - Build out some type of sub-authentication against "Tenants", they can only view "Issues" and other basic informaiton. These profiles are created when landlords set up a tenant automatically. 

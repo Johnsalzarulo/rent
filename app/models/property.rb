@@ -5,9 +5,26 @@ class Property < ActiveRecord::Base
 	has_many :issues
 	has_many :rent_payments, through: :tenants
 
-	scope :active, -> { where status: 'Occupied' }
-	scope :vacant, -> { where status: 'Vacant' }
-	scope :occupied, -> { where tenants: 'Occupied' }
-	scope :created_before, ->(time) { where("created_at < ?", time) }
+
+    def self.occupied
+      select do |record| 
+      	record.occupied?
+      end
+    end
+
+    def self.vacant
+      select do |record| 
+      	record.vacant?
+      end
+    end
+
+	def occupied?
+      !tenants.empty?
+	end
+
+	def vacant?
+		tenants.empty?
+	end
+
 
 end

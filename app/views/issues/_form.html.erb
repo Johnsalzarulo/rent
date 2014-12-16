@@ -1,18 +1,18 @@
 <%=  form_for @issue do |f| %>
 
-<div class="field">
+<div class="form-group">
 	<%= f.label :note %>
-	<%= f.text_area :note %>
+	<%= f.text_area :note, class:"form-control"  %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label 'Status' %><br>
-  <%= select_tag(:status, options_for_select([['New Issue', 'New Issue'],'In Progress','Completed'])) %>
+  <%= select_tag(:status, options_for_select([['New Issue', 'New Issue'],'In Progress','Completed']), {class:"form-control"}) %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label 'Property' %><br>
-  <%= collection_select(:issue, :property_id, Property.all, :id, :address) %>
+  <%= collection_select(:issue, :property_id, Property.all, :id, :address, {},{class:"form-control"}) %>
 </div>
 
 <div class="actions">

@@ -3,21 +3,23 @@ class TenantsController < ApplicationController
   before_filter :authorize
 
   def index
-    @tenants = current_landlord.tenants
+    @active_tenants = current_landlord.tenants.active
+    @past_tenants = current_landlord.tenants.past 
+    @potential_tenants = current_landlord.tenants.potential 
   end
 
   def show
   end
 
   def new
-    @tenant = Tenant.new
+    @tenant = current_landlord.tenants.new
   end
 
   def edit
   end
 
   def create
-    @tenant = Tenant.new(tenant_params)
+    @tenant = current_landlord.tenants.new(tenant_params)
 
       if @tenant.save
         redirect_to @tenant, notice: 'Tenant was successfully created.'

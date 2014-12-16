@@ -3,7 +3,7 @@ class IssuesController < ApplicationController
 	before_filter :authorize
 
 	def index
-		@issues = Issue.all
+		@issues = current_landlord.issues
 
 	end
 
@@ -11,22 +11,22 @@ class IssuesController < ApplicationController
 	end
 
 	def new
-    	@issue = Issue.new
+    	@issue = current_landlord.issues.new
   	end
 
 	def edit
 	end
 
 	def create
-	  @issue = Issue.new(issue_params)
+	  @issue = current_landlord.issues.new(issue_params)
 
 	    if @issue.save
 	      redirect_to @issue, notice: 'Issue was successfully created.'
 	    else
 	      render :new
 	    end
-
 	end
+
 
 	def update
 
