@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def current_landlord
     @current_landlord ||= Landlord.find(session[:landlord_id]) if session[:landlord_id]
   end
+  
   helper_method :current_landlord
 
   def authorize

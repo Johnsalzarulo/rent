@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :tenants
   resources :landlords
   resources :issues
+  resources :messages, :only => [:index, :new, :create, :show]
 
   # AUTHENTICATION ROUTES
   get '/signup' => 'landlords#new'

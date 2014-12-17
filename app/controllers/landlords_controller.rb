@@ -21,6 +21,7 @@ class LandlordsController < ApplicationController
     @landlord = Landlord.new(landlord_params)
 
       if @landlord.save
+        session[:landlord_id] = @landlord.id
         redirect_to @landlord, notice: 'Landlord was successfully created.'
       else
         render :new
