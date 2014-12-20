@@ -7,6 +7,7 @@ class IssuesController < ApplicationController
     		@in_progress = current_landlord.issues.in_progress 
     		@complete = current_landlord.issues.complete 
     		@archive = current_landlord.issues.archive 
+    		@not_complete = current_landlord.issues.not_complete 
 	end
 
 	def show

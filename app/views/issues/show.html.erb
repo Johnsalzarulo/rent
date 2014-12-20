@@ -1,0 +1,9 @@
+<h2><%= @issue.note %><h2>
+<h3><%= link_to @issue.property.address, @issue.property %><h3>
+<% @issue.property.tenants.each do |tenant|%>
+<h3><%= link_to tenant.name, tenant %></h3>
+<% end %>
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>|
+<td><%= link_to 'Delete this issue', @issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div> 

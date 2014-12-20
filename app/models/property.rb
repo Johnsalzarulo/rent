@@ -12,6 +12,7 @@ class Property < ActiveRecord::Base
       end
     end
 
+
     def self.vacant
       select do |record| 
       	record.vacant?

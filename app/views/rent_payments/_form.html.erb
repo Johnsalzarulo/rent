@@ -11,33 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-field">
     <%= f.label :ammount %><br>
-    <%= f.number_field :ammount %>
+    <%= f.number_field :ammount, class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-field">
     <%= f.label :date_due %><br>
-    <%= f.date_select :date_due %>
+    <%= f.date_select :date_due, class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-field">
     <%= f.label :date_paid %><br>
-    <%= f.date_select :date_paid %>
+    <%= f.date_select :date_paid, class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-field">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%= f.text_field :status, class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-field">
     <%= f.label :reff %><br>
-    <%= f.text_field :reff %>
+    <%= f.text_field :reff, class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-field">
     <%= f.label :method %><br>
-    <%= f.text_field :method %>
+    <%= f.text_field :method, class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-field">
     <%= f.label 'Payment Belongs to:' %><br>
-    <%= collection_select(:rent_payment, :tenant_id, Tenant.all, :id, :name) %>
+    <%= collection_select(:rent_payment, :tenant_id, current_landlord.tenants.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit class:"btn btn-success"%>

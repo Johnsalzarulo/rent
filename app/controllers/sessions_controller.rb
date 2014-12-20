@@ -4,15 +4,15 @@ class SessionsController < ApplicationController
     landlord = Landlord.find_by_email(params[:email])
     if landlord && landlord.authenticate(params[:password])
       session[:landlord_id] = landlord.id
-      redirect_to current_landlord, notice: 'You are logged in.'
+      redirect_to dashboard_path
     else
-      redirect_to '/login', notice: 'Something is not right, please check your email / password and try again'
+      redirect_to '/login'
     end
   end
 
   def destroy
     session[:landlord_id] = nil
-    redirect_to '/', notice: 'You have been logged out'
+    redirect_to '/loggedout'
   end
 
 end

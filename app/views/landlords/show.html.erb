@@ -11,7 +11,7 @@
 	</div>
 </div>
 
-<h4>Properties Owned By <%= @landlord.name %></h4>
+<h4>Properties</h4>
 	<ul class="list-group">
 	<% @landlord.properties.each do |property| %>
 		<li class="list-group-item">
@@ -20,10 +20,17 @@
 	</ul>
 </p>
 
-<h4>Tenants of <%= @landlord.name %>'s Properties</h4>
+<h4>Tenants</h4>
 	<ul class="list-group">
 	<% @landlord.tenants.all.each do |tenant|  %>
 		<li class="list-group-item"><%= link_to tenant.name, tenant_path(tenant.id) %></li>
+	<% end %>
+	</ul>
+
+<h4>Open Issues</h4>
+	<ul class="list-group">
+	<% @landlord.issues.not_complete.each do |issue|  %>
+		<li class="list-group-item"><%= link_to issue.note, issue_path(issue.id) %></li>
 	<% end %>
 	</ul>
 

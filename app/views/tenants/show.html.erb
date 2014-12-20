@@ -27,6 +27,12 @@
   <% end %>
 </table>
 
+<h3>Messages</h3>
+<% @tenant.messages.each do |message| %>
+<%= message.body %><br
+<% end %>
+<%= link_to 'Send tenant a message', new_message_path %> <br>
+
 <%= link_to 'Edit', edit_tenant_path(@tenant) %> | 
 <%= link_to 'Back', tenants_path %> | 
  <td><%= link_to 'Destroy', @tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>

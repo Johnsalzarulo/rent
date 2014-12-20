@@ -12,7 +12,7 @@
 
 <div class="form-group">
   <%= f.label 'Property' %><br>
-  <%= collection_select(:issue, :property_id, Property.all, :id, :address, {},{class:"form-control"}) %>
+  <%= collection_select(:issue, :property_id, current_landlord.properties, :id, :address, {},{class:"form-control"}) %>
 </div>
 
 <div class="actions">

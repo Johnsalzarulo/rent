@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # PAGES
   root 'pages#home'
+  get '/dashboard' => 'pages#dashboard'
+  get '/loggedout' => 'pages#loggedout'
 
   # RESOURCES
   resources :rent_payments

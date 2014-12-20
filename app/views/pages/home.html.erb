@@ -1,7 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container" id="bghouse">
+
+<div class="jumbotron row" >
 <div class="jumbotron">
-  <h2>Property management simplified.</h2>
-  <p>Manage properties, rent payments and your basic accounting and repairs all using one simple system.</p>
-  <p><button type="button" class="btn btn-success">Learn More</button></p>
+  <h1>Property management simplified.</h1>
+  <h3>Join <%= @landlord_count %> other managers who are managing <%= @property_count%> properties using this simple system.</h3>
+  <h3>Focus less on emails and paperwork, get back to what matters.</h3>
+  <p><a href="/signup" type="button" class="btn btn-success">Get Started</a></p>
+</div>
+
+
+	<div class="jumotron col-md-4 text-center">
+	  <div class="well">
+	  	<h1><div class="glyphicon glyphicon-inbox"></div></h1>
+	  	<h3><strong>Everything in one place.</strong></h3>
+	  	<h4>All your properties, tenants, payments and issues in one simple place.</h4>
+	  </div>
+	</div>
+
+	<div class="jumotron col-md-4 text-center" >
+	  <div class="well">
+	  	<h1><div class="glyphicon glyphicon-envelope"></div></h1>
+	  	<h3><strong>Even handles your conversations.</strong></h3>
+	  	<h4>SMS conversations with tenants in one archivable place.</h4>
+	  </div>
+	</div>
+
+	<div class="jumotron col-md-4 text-center" >
+	  <div class="well">
+	  	<h1><div class="glyphicon glyphicon-asterisk"></div></h1>
+	  	<h3><strong>Simplicity and clarity.</strong></h3>
+	  	<h4>Know what's going on in a glance. From rent payments to repairs and more.</h4>
+	  </div>
+	</div>
+
+</header>
+
 </div>

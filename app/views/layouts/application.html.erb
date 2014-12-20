@@ -8,18 +8,23 @@
 </head>
 <body>
 
- <header class="navbar navbar-inverse" id="top" role="banner">
+ <header class="navbar navbar-inverse navbar-fixed-top" id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle btn btn-default" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">menu</button>
-      <a href="../" class="navbar-brand"><div class="glyphicon glyphicon-home"></div> Rent</a></a>
+      <% if current_landlord %>
+      <a href="/dashboard" class="navbar-brand"><div class="glyphicon glyphicon-home"></div></a></a>
+      <% else %>
+      <a href="../" class="navbar-brand"><div class="glyphicon glyphicon-home"></div></a></a>
+      <% end %>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
             <% if current_landlord %>
               <li><%=link_to 'Properties', properties_path%></li>
               <li><%=link_to 'Tenants', tenants_path %></li>
-        <!--  <li><%=link_to 'Rent', rent_payments_path %></li> -->
+              <li><%=link_to 'Rent', rent_payments_path %></li>
+              <li><%=link_to 'Messages', '/messages#pgbtm' %></li>
               <li><%=link_to 'Issues', issues_path %></li>
               <li><%= link_to "Logout", '/logout' %></li>
             <% else %>
@@ -38,9 +43,10 @@
 
 
 <div class="container">
+<div class="maincontent">
 
 	<%= yield %>
-
+</div>
 </div>
 
 </body>

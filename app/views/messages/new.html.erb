@@ -2,8 +2,8 @@
 
 <%= form_for @message do |f| %>
 <div class="form-group">
-	<%= f.label :to %>
-	<%= f.text_field :to, class:"form-control" %>
+	<%= f.label 'Send a new message to' %><br>
+    <%= collection_select(:message, :tenant_id, current_landlord.tenants, :id, :name ,{},{class: 'form-control'})%>
 </div>
 <div class="form-group">
 	<%= f.label :body %>
@@ -14,4 +14,4 @@
 	<%= f.submit class:"btn btn-primary"%>
 </div>
 
-<% end %>
+<% end %>`

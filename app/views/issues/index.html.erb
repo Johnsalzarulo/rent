@@ -1,39 +1,36 @@
 <ul class="nav nav-pills">
-    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">New</a></li>
-  <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">In Progress</a></li>
-  <li class=""><a href="#potential" data-toggle="tab" aria-expanded="false">Completed</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Not Complete</a></li>
+  <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Completed</a></li>
+  <li class=""><a href="#potential" data-toggle="tab" aria-expanded="false">Archive</a></li>
   <li class=""><%= link_to 'Enter a new issue', new_issue_path %></li>
 </ul>
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="profile"><br>
     <ul class="list-group">
-    <% @new.each do |issue| %>
+    <% @not_complete.each do |issue| %>
         <li class="list-group-item">
             <h4><%= link_to issue.note, issue %></h4>
             <h5><%= link_to issue.property.address, issue.property%></h5>
-            <%= link_to 'Detail', issue, class:"btn btn-warning btn-xs" %>
         </li>
     <% end %>
     </ul>
   </div>
   <div class="tab-pane fade" id="home"><br>
     <ul class="list-group">
-    <% @new.each do |issue| %>
+    <% @complete.each do |issue| %>
         <li class="list-group-item">
             <h4><%= link_to issue.note, issue %></h4>
             <h5><%= link_to issue.property.address, issue.property%></h5>
-            <%= link_to 'Detail', issue, class:"btn btn-warning btn-xs" %>
         </li>
     <% end %>
     </ul>
   </div>
   <div class="tab-pane fade" id="potential"><br>
     <ul class="list-group">
-    <% @new.each do |issue| %>
+    <% @archive.each do |issue| %>
         <li class="list-group-item">
             <h4><%= link_to issue.note, issue %></h4>
             <h5><%= link_to issue.property.address, issue.property%></h5>
-            <%= link_to 'Detail', issue, class:"btn btn-warning btn-xs" %>
         </li>
     <% end %>
     </ul>

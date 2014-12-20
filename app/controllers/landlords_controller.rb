@@ -22,7 +22,7 @@ class LandlordsController < ApplicationController
 
       if @landlord.save
         session[:landlord_id] = @landlord.id
-        redirect_to @landlord, notice: 'Landlord was successfully created.'
+        redirect_to dashboard_path, notice: 'Landlord was successfully created.'
       else
         render :new
       end
