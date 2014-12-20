@@ -15,3 +15,95 @@
 - Need to update "status" against tenats and against "properties" to do something helpful. 
 
 - Do I want to try to manage rent? I might just want to remove this functionality alltogether.
+
+
+
+- - - - 
+
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+@import url("//fonts.googleapis.com/css?family=Roboto:100,300,400,500");
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Roboto", Helvetica, Arial, sans-serif!important;
+    font-weight: 300;
+}
+
+
+#bghouse {
+  background-image: url("../assets/house.jpg");
+  background-size: 100% ;
+}
+
+#bghouse .jumbotron {
+  background-color: transparent;
+}
+
+#bghouse .well {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+#bghouse h1,
+#bghouse h2,
+#bghouse h3,
+#bghouse h4 {
+  color: white;
+}
+
+#bghouse .well h1,
+#bghouse .well h2,
+#bghouse .well h3,
+#bghouse .well h4,
+#bghouse .well  h5,
+#bghouse .well p {
+  color: black;
+}
+
+
+.alert .alert-warning,
+.alert .alert-info {
+  border-radius: 12px;
+  margin: 15px;
+}
+
+.message-in {
+  background-color: #2ecc71;
+  border-radius: 12px;
+  color: white;
+  margin: 10px;
+}
+
+.message-out {
+  background-color: #3498db;
+    border-radius: 12px;
+      color: white;
+}
+
+
+/*THESE ARE FROM THE THEME*/
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 80%;
+  -webkit-text-size-adjust: 80%;
+}
+body {
+  margin: 0;
+}
