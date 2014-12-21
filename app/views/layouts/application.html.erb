@@ -11,7 +11,11 @@
  <header class="navbar navbar-default" id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <button class="navbar-toggle btn btn-default" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">menu</button>
+      <button class="navbar-toggle btn btn-default" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <% if current_landlord %>
       <a href="/dashboard" class="navbar-brand"><div class="glyphicon glyphicon-home"></div></a></a>
       <% else %>
@@ -24,7 +28,6 @@
               <li><%=link_to 'Properties', properties_path%></li>
               <li><%=link_to 'Tenants', tenants_path %></li>
               <li><%=link_to 'Rent', rent_payments_path %></li>
-              <li><%=link_to 'Messages', '/messages#pgbtm' %></li>
               <li><%=link_to 'Issues', issues_path %></li>
               <li><%= link_to "Logout", '/logout' %></li>
             <% else %>

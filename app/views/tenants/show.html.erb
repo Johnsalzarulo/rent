@@ -9,30 +9,13 @@
   <%= @tenant.status %><br>
 </p>
 
-<h3>Rent Payments</h3>
 
-<table>
-  <tr>
-    <th>Ammount</th>
-    <th>Status</th>
-    <th>Due Date</th>
-  </tr>
-  <% @tenant.rent_payments.each do |payment| %>
-  <tr>
-    <td><%= link_to payment.ammount, rent_payment_path(payment.id) %></td>
-    <td><%= payment.status %></td>
-    <td><%= payment.date_due %></td>
-  </tr>
-
-  <% end %>
-</table>
-
-<h3>Messages</h3>
-<% @tenant.messages.each do |message| %>
-<%= message.body %><br
-<% end %>
-<%= link_to 'Send tenant a message', new_message_path %> <br>
-
-<%= link_to 'Edit', edit_tenant_path(@tenant) %> | 
-<%= link_to 'Back', tenants_path %> | 
- <td><%= link_to 'Destroy', @tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="well">
+  <ul class="nav nav-pills">
+    <li class=""><%= link_to 'Edit', edit_tenant_path(@tenant) %></li>
+    <li class="">
+        <%= link_to 'Delete', @tenant, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+    <li class=""><%= link_to 'Back to All Tenants', tenants_path %></li>
+  </ul>
+</div>

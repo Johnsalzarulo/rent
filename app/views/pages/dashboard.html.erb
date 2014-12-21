@@ -1,93 +1,75 @@
 
 <div class="container">
+		
+			<div class="jumbotron">
+				<h1><div class="glyphicon glyphicon-ok"></h1>
+		  	<h2>Welcome <%= current_landlord.name %></h2>
+		  </div>
 
-<div class="jumbotron row" >
-<div class="jumbotron">
-	<h1><div class="glyphicon glyphicon-ok"></h1>
-  <h1>Welcome <%= current_landlord.name %></h1>
-</div>
+		<% if current_landlord.properties.count < 1 %>
 
-<% if current_landlord.properties.count < 1 %>
+		<div class="jumotron col-md-4 text-center">
+		  <div class="well">
+		  	<h1><div class="glyphicon glyphicon-home"></div></h1>
+		  	<h3><strong>You don't have any properties yet.</strong></h3>
+		  		<%= link_to "Set Up a Property", new_property_path, class:"btn btn-primary"  %>
+		  </div>
+		</div>
 
-	<div class="jumotron col-md-4 text-center">
-	  <div class="well">
-	  	<h1><div class="glyphicon glyphicon-home"></div></h1>
-	  	<h3><strong>You don't have any properties yet.</strong></h3>
-	  	<div class="btn btn-primary">
-	  	<%= link_to "Set Up a Property", new_property_path %>
-	  	</div>
-	  </div>
-	</div>
+		<% else %>
 
-<% else %>
+		<div class="jumotron col-md-4 text-center">
+		  <div class="well">
+		  	<h1><div class="glyphicon glyphicon-home"></div></h1>
+		  	<h3><strong>You have <%= current_landlord.properties.count%> properties.</strong></h3>
+		  		<%= link_to "See my properties", properties_path, class:"btn btn-primary" %>
+		  </div>
+		</div>
 
-	<div class="jumotron col-md-4 text-center">
-	  <div class="well">
-	  	<h1><div class="glyphicon glyphicon-home"></div></h1>
-	  	<h3><strong>You have <%= current_landlord.properties.count%> tenant.</strong></h3>
-	  	<div class="btn btn-primary">
-	  	<%= link_to "See my properties", properties_path %>
-	  	</div>
-	  </div>
-	</div>
-
-<% end %>
+		<% end %>
 
 
-<% if current_landlord.tenants.count < 1 %>
+		<% if current_landlord.tenants.active.count < 1 %>
 
-	<div class="jumotron col-md-4 text-center">
-	  <div class="well">
-	  	<h1><div class="glyphicon glyphicon-user"></div></h1>
-	  	<h3><strong>You don't have any Tenants yet.</strong></h3>
-	  	<div class="btn btn-primary">
-	  	<%= link_to "Set Up a Tenant", new_tenant_path %>
-	  	</div>
-	  </div>
-	</div>
+		<div class="jumotron col-md-4 text-center">
+		  <div class="well">
+		  	<h1><div class="glyphicon glyphicon-user"></div></h1>
+		  	<h3><strong>You don't have any Tenants yet.</strong></h3>
+		  		<%= link_to "Set Up a Tenant", new_tenant_path, class:"btn btn-primary" %>
+		  </div>
+		</div>
 
-<% else %>
+		<% else %>
 
-	<div class="jumotron col-md-4 text-center">
-	  <div class="well">
-	  	<h1><div class="glyphicon glyphicon-user"></div></h1>
-	  	<h3><strong>You have <%= current_landlord.properties.count%> properties.</strong></h3>
-	  	<div class="btn btn-primary">
-	  	<%= link_to "See my tenants", tenants_path %>
-	  	</div>
-	  </div>
-	</div>
+		<div class="jumotron col-md-4 text-center">
+		  <div class="well">
+		  	<h1><div class="glyphicon glyphicon-user"></div></h1>
+		  	<h3><strong>You have <%= current_landlord.tenants.active.count%> tenants.</strong></h3>
+		  		<%= link_to "See my tenants", tenants_path, class:"btn btn-primary" %>
+		  </div>
+		</div>
 
-<% end %>
+		<% end %>
 
+		<% if current_landlord.issues.count < 1 %>
 
+		<div class="jumotron col-md-4 text-center">
+		  <div class="well">
+		  	<h1><div class="glyphicon glyphicon-remove"></div></h1>
+		  	<h3><strong>You don't have any Issues yet.</strong></h3>
+		  		<%= link_to "Create a new Issue", new_issue_path, class:"btn btn-primary" %>
+		  </div>
+		</div>
 
-<% if current_landlord.issues.count < 1 %>
+		<% else %>
 
-	<div class="jumotron col-md-4 text-center">
-	  <div class="well">
-	  	<h1><div class="glyphicon glyphicon-remove"></div></h1>
-	  	<h3><strong>You don't have any Issues yet.</strong></h3>
-	  	<div class="btn btn-primary">
-	  	<%= link_to "Create a new Issue", new_issue_path %>
-	  	</div>
-	  </div>
-	</div>
+		<div class="jumotron col-md-4 text-center">
+		  <div class="well">
+		  	<h1><div class="glyphicon glyphicon-remove"></div></h1>
+		  	<h3><strong>You have <%= current_landlord.issues.count%> issues.</strong></h3>
+		  	<%= link_to "See my issues", issues_path, class:"btn btn-primary" %>
+		  </div>
+		</div>
 
-<% else %>
-
-	<div class="jumotron col-md-4 text-center">
-	  <div class="well">
-	  	<h1><div class="glyphicon glyphicon-remove"></div></h1>
-	  	<h3><strong>You have <%= current_landlord.issues.count%> issues.</strong></h3>
-	  	<div class="btn btn-primary">
-	  	<%= link_to "See my issues", issues_path %>
-	  	</div>
-	  </div>
-	</div>
-
-<% end %>
-
-</header>
-
+		<% end %>
 </div>

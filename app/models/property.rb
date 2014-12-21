@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base
 	belongs_to :landlord
 	has_many :tenants
 	has_many :issues
+  has_many :notes
 	has_many :rent_payments, through: :tenants
 
 
@@ -20,11 +21,11 @@ class Property < ActiveRecord::Base
     end
 
 	def occupied?
-      !tenants.empty?
+      !tenants.active.empty?
 	end
 
 	def vacant?
-		tenants.empty?
+		tenants.active.empty?
 	end
 
 

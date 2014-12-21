@@ -4,7 +4,7 @@ class Tenant < ActiveRecord::Base
 	has_many :rent_payments
 	has_many :messages
 
-  scope :active, -> { where status: 'active tenant' }
+  scope :active, -> { where status: 'active tenant'}
   scope :potential, -> { where status: 'potential tenant' }
   scope :past, -> { where status: 'past tenant' }
 

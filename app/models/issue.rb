@@ -6,7 +6,7 @@ class Issue < ActiveRecord::Base
   scope :in_progress, -> { where status: 'In Progress' }
   scope :complete, -> { where status: 'Complete' }
   scope :archive, -> { where status: 'Archive' }
-  scope :not_complete, -> { where status: 'In Progress' }
+  scope :not_complete, -> { where(:status => ["New", "In Progress"]) }
 
 
 end

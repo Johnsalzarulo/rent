@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'notes/new'
+
+  get 'notes/create'
+
+  get 'notes/destroy'
+
   # PAGES
   root 'pages#home'
   get '/dashboard' => 'pages#dashboard'
@@ -7,11 +13,13 @@ Rails.application.routes.draw do
 
   # RESOURCES
   resources :rent_payments
-  resources :properties
   resources :tenants
   resources :landlords
   resources :issues
   resources :messages, :only => [:index, :new, :create, :show]
+  resources :properties do
+    resources :notes, only: [:index, :new, :create, :destroy]
+  end
 
   # AUTHENTICATION ROUTES
   get '/signup' => 'landlords#new'

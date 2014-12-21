@@ -1,9 +1,26 @@
+<% if current_landlord.properties.count < 1 %>
+
+        <div class="jumotron text-center">
+          <div class="well">
+            <h1><div class="glyphicon glyphicon-user"></div></h1>
+            <h3><strong>You don't have any tenants yet.</strong></h3>
+                <%= link_to "Set Up a Tenant", new_tenant_path, class:"btn btn-primary"  %>
+          </div>
+        </div>
+
+<% else %>
+
+
+
+<div class="well">
 <ul class="nav nav-pills">
-    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Active</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Active </a></li>
   <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Past</a></li>
   <li class=""><a href="#potential" data-toggle="tab" aria-expanded="false">Potential</a></li>
   <li class=""><%= link_to 'Set Up a new Tenant', new_tenant_path %></li>
 </ul>
+</div>
+
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="profile"><br>
     <ul class="list-group">
@@ -12,7 +29,6 @@
             <h4><%= link_to tenant.name, tenant %></h4>
             <h5><%= link_to tenant.property.address, tenant.property %></h5>
             <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
-            <%= link_to 'Detail', tenant, class:"btn btn-warning btn-xs" %>
         </li>
     <% end %>
     </ul>
@@ -24,7 +40,6 @@
             <h4><%= link_to tenant.name, tenant %></h4>
             <h5><%= link_to tenant.property.address, tenant.property %></h5>
             <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
-            <%= link_to 'Detail', tenant, class:"btn btn-warning btn-xs" %>
         </li>
     <% end %>
         </ul>
@@ -36,9 +51,10 @@
             <h4><%= link_to tenant.name, tenant %></h4>
             <h5><%= link_to tenant.property.address, tenant.property %></h5>
             <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
-            <%= link_to 'Detail', tenant, class:"btn btn-warning btn-xs" %>
         </li>
     <% end %>
         </ul>
   </div>
 </div>
+
+<% end %>

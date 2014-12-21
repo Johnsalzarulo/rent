@@ -8,6 +8,8 @@ class IssuesController < ApplicationController
     		@complete = current_landlord.issues.complete 
     		@archive = current_landlord.issues.archive 
     		@not_complete = current_landlord.issues.not_complete 
+
+    		@issue = current_landlord.issues.new
 	end
 
 	def show
@@ -24,7 +26,7 @@ class IssuesController < ApplicationController
 	  @issue = current_landlord.issues.new(issue_params)
 
 	    if @issue.save
-	      redirect_to @issue, notice: 'Issue was successfully created.'
+	      redirect_to issues_path, notice: 'Issue was successfully created.'
 	    else
 	      render :new
 	    end
@@ -34,7 +36,7 @@ class IssuesController < ApplicationController
 	def update
 
 	    if @issue.update(issue_params)
-	      redirect_to @issue, notice: 'Issue was successfully updated.'
+	      redirect_to issues_path
 	    else
 	      render :edit
 	    end

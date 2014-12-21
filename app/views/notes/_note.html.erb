@@ -1,0 +1,7 @@
+<li class="list-group-item">
+<strong><%= note.created_at.strftime("%m/%d/%Y") %>:</strong> 
+    <%= note.text %>
+    <%= link_to 'Delete Note', [note.property, note],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</li>

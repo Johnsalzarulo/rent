@@ -1,38 +1,107 @@
-<ul class="nav nav-pills">
-    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Not Complete</a></li>
-  <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Completed</a></li>
-  <li class=""><a href="#potential" data-toggle="tab" aria-expanded="false">Archive</a></li>
-  <li class=""><%= link_to 'Enter a new issue', new_issue_path %></li>
-</ul>
-<div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="profile"><br>
-    <ul class="list-group">
-    <% @not_complete.each do |issue| %>
-        <li class="list-group-item">
-            <h4><%= link_to issue.note, issue %></h4>
-            <h5><%= link_to issue.property.address, issue.property%></h5>
-        </li>
-    <% end %>
-    </ul>
-  </div>
-  <div class="tab-pane fade" id="home"><br>
-    <ul class="list-group">
-    <% @complete.each do |issue| %>
-        <li class="list-group-item">
-            <h4><%= link_to issue.note, issue %></h4>
-            <h5><%= link_to issue.property.address, issue.property%></h5>
-        </li>
-    <% end %>
-    </ul>
-  </div>
-  <div class="tab-pane fade" id="potential"><br>
-    <ul class="list-group">
-    <% @archive.each do |issue| %>
-        <li class="list-group-item">
-            <h4><%= link_to issue.note, issue %></h4>
-            <h5><%= link_to issue.property.address, issue.property%></h5>
-        </li>
-    <% end %>
-    </ul>
-  </div>
+<div class='well'>
+  <ul class="nav nav-pills">
+      <li class="active"><a href="#incomplete" data-toggle="tab" aria-expanded="true">Not Complete <div class="badge"><%= @not_complete.count %></div></a></li>
+    <li class=""><a href="#complete" data-toggle="tab" aria-expanded="false">Completed <div class="badge"><%= @complete.count %></div></a></li>
+    <li class=""><a href="#archive" data-toggle="tab" aria-expanded="false">Archive <div class="badge"><%= @archive.count %></div></a></li>
+    <li class=""><%= link_to 'Enter a new issue', new_issue_path %></li>
+  </ul>
 </div>
+
+<div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade active in" id="incomplete"><br>
+    <div class="list-group">
+      <% @not_complete.each do |issue| %>
+        <div class='list-group-item'>
+          <div class="row">
+            <div class="col-xs-8">
+              <h4><%= link_to issue.note, issue %></h4>
+              <h5><%= link_to issue.property.address, issue %></h5>
+            </div>
+            <div class="col-xs-4">
+              <%=  form_for issue do |f| %>
+                <div class="form-inline text-right">
+                  <%= hidden_field_tag('issue[status]', 'Complete') %><br>
+                  <%= f.submit 'Mark as Complete', class:'btn btn-success btn-sm' %> 
+                </div>
+              <% end %>
+            </div>
+          </div>  
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="complete"><br>
+    <div class="list-group">
+      <% @complete.each do |issue| %>
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-xs-8">
+              <h4><%= link_to issue.note, issue %></h4>
+              <h5><%= link_to issue.property.address, issue.property%></h5>
+            </div>
+            <div class="col-xs-4">
+              <%=  form_for issue do |f| %>
+                <div class="form-inline text-right">
+                  <%= hidden_field_tag('issue[status]', 'Archive') %><br>
+                  <%= f.submit 'Archive Issue', class:'btn btn-danger btn-sm' %> 
+                </div>
+            </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="archive"><br>
+    <div class="list-group">
+      <% @archive.each do |issue| %>
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-xs-8">
+              <h4><%= link_to issue.note, issue %></h4>
+              <h5><%= link_to issue.property.address, issue.property%></h5>
+              <%= link_to 'Delete Issue Forever', @issue, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+            <div class="col-xs-4">
+              <%=  form_for issue do |f| %>
+                <div class="form-inline text-right">
+                  <%= hidden_field_tag('issue[status]', 'New') %><br>
+                  <%= f.submit 'Restore Issue', class:'btn btn-warning btn-sm' %>
+                </div>
+            </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="well">
+      <h4 class="text-center">Enter a new issue</h4><br>
+      <%=  form_for @issue do |f| %>
+      <%= hidden_field_tag('issue[status]', 'New') %>
+
+        <div class='col-sm-6'>
+          <%= f.text_field :note, class:"form-control input-sm", placeholder:"Enter issue here..." %>
+        </div>
+
+        <div class='col-sm-3'>
+          <%= collection_select(:issue, :property_id, current_landlord.properties, :id, :address, {},{class:"form-control input-sm"}) %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit class:"btn btn-success btn-sm"%>
+        </div>
+
+      <% end %>
+              
+  </div>
+
+</div>
+
+
+
+

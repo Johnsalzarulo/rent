@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
   def index
     @occupied = current_landlord.properties.occupied
     @vacant = current_landlord.properties.vacant
+
   end
 
   def show

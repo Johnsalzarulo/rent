@@ -6,7 +6,6 @@ class PagesController < ApplicationController
 	end
 
 	def dashboard
-		@landlord_count = Landlord.all.count
 		@property_count = Property.all.count
 	end
 

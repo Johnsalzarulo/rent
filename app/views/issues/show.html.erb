@@ -6,4 +6,21 @@
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>|
 <td><%= link_to 'Delete this issue', @issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<% if @issue.status == 'Archive' %> 
+	<%=  form_for @issue do |f| %>
+	  	<%= hidden_field_tag('issue[status]', 'New') %>
+	  	<%= f.submit 'Restore Issue', class:"btn btn-success btn-sm"%>
+	<% end %>
+<% else %>
+	<%=  form_for @issue do |f| %>
+	  		<%= hidden_field_tag('issue[status]', 'Archive') %>
+	  <%= f.submit 'Archive Issue', class:"btn btn-success btn-sm"%>
+	<% end %>
+<% end %>
+
+              
+
+
+
 </div> 
