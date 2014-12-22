@@ -63,7 +63,7 @@
             <div class="col-xs-8">
               <h4><%= link_to issue.note, issue %></h4>
               <h5><%= link_to issue.property.address, issue.property%></h5>
-              <%= link_to 'Delete Issue Forever', @issue, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Delete Forever', issue, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
             <div class="col-xs-4">
               <%=  form_for issue do |f| %>

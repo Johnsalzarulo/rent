@@ -2,6 +2,12 @@
 
   <h4 class="text-center"><%= @property.address %></h4>
 
+<h5>Total Expenses: <%= @property.accounting_transactions.expense.sum(:ammount) %></h5>
+
+<h5>Total Income: <%= @property.accounting_transactions.income.sum(:ammount) %></h5>
+
+<h5>Net: <%= @property.accounting_transactions.income.sum(:ammount) - @property.accounting_transactions.expense.sum(:ammount)  %></h5>
+
 <ul class="list-group">
 
   <li class="list-group-item">
@@ -25,6 +31,26 @@
       <%= issue.note %><br>
       <% end %>
     </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Accounting
+    </div>
+    <table class="table table-hover">
+    <tr>
+      <th>Type</th>
+      <th>For</th>
+      <th>Ammount</th>
+    </tr>
+    <% @property.accounting_transactions.each do |transaction| %>
+    <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+      <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+      <td><%= transaction.for %></td>
+      <td><%= link_to transaction.ammount, transaction %></td>
+    </tr>
+    <% end %>
+  </table>
   </div>
 
 

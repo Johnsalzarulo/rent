@@ -1,0 +1,58 @@
+<div class="well">
+<ul class="nav nav-pills">
+    <li class="active"><a href="#alltransactions" data-toggle="tab" aria-expanded="true">All <div class="badge"><%= @transactions.count %></div></a></li>
+  <li class=""><a href="#income" data-toggle="tab" aria-expanded="false">Income <div class="badge"><%= @income.count %></div></a></li>
+  <li class=""><a href="#expenses" data-toggle="tab" aria-expanded="false">Expenses <div class="badge"><%= @expenses.count %></div></a></li>
+  <li class=""><%= link_to 'New Transaction', new_accounting_transaction_path %></li>
+</ul>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">Income: <%= @income.sum(:ammount) %></li>
+  <li class="list-group-item list-group-item-danger">Expenses: <%= @expenses.sum(:ammount) %></li>
+  <li class="list-group-item list-group-item-info">Net: <%= @income.sum(:ammount) - @expenses.sum(:ammount)  %></li>
+</ul>
+
+<div id="propertiesindex" class="tab-content">
+
+    <div class="tab-pane fade active in" id="alltransactions"><br>
+    
+    <table class="table table-hover">
+    <tr>
+      <th>Type</th>
+      <th>For</th>
+      <th>Ammount</th>
+      <th>Property</th>
+    </tr>
+    <% @transactions.each do |transaction| %>
+    <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+      <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+      <td><%= transaction.for %></td>
+      <td><%= link_to transaction.ammount, transaction %></td>
+      <td><%= link_to transaction.property.address, transaction.property %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+
+    <div class="tab-pane fade" id="income"><br>
+    <ul class="list-group">
+    <% @income.each do |income| %>
+        <li class="list-group-item">
+            <h4><%= link_to income.ammount, income %></h4>
+        </li>
+    <% end %>
+    </ul>
+  </div>
+  
+  <div class="tab-pane fade" id="expenses"><br>
+    <ul class="list-group">
+        <% @expenses.each do |expense| %>
+               <li class="list-group-item">
+            <h4><%= link_to expense.ammount, expense %></h4>
+        </li>
+    <% end %>
+        </ul>
+
+</div>
+

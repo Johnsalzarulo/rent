@@ -4,6 +4,7 @@ class Property < ActiveRecord::Base
 	has_many :tenants
 	has_many :issues
   has_many :notes
+  has_many :accounting_transactions
 	has_many :rent_payments, through: :tenants
 
 

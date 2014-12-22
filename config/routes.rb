@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :rent_payments
   resources :tenants
   resources :landlords
+  resources :accounting_transactions
   resources :issues
   resources :messages, :only => [:index, :new, :create, :show]
   resources :properties do

@@ -1,0 +1,39 @@
+<%= form_for(@accounting_transaction) do |f| %>
+
+<%= hidden_field_tag('accounting_transaction[category]', 'income') %><br>
+
+<div class="form-group">
+  <%= f.label 'Property' %><br>
+  <%= collection_select(:accounting_transaction, :property_id, current_landlord.properties, :id, :address, {},{class:"form-control"}) %>
+</div>
+
+	<div class="form-group">
+	    <%= f.label :for %><br>
+	    <%= f.select :for, [["Rent","Rent"],["Reiumbursment","Reiumbursment"],["Deposit","Deposit"],["Security Deposit","Security Deposit"],["Other","Other"]],{},{class: 'form-control'} %>
+  	</div>
+
+  <div class="form-group">
+    <%= f.label :ammount %><br>
+    <%= f.number_field :ammount, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Method' %><br>
+    <%= f.select :p_method, [["Check","Check"],["Cash","Cash"],["Transfer","Transfer"],["Other","Other"]],{},{class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :reff_number %><br>
+    <%= f.text_field :reff_number, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes, class:'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Post as Income',class:"btn btn-success"%>
+  </div>
+
+<% end %>
