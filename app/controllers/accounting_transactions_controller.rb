@@ -1,9 +1,10 @@
 class AccountingTransactionsController < ApplicationController
+    helper_method :sort_column, :sort_direction
 
   def index
-    @transactions = AccountingTransaction.all
-    @income = AccountingTransaction.income
-    @expenses = AccountingTransaction.expense
+    @transactions = AccountingTransaction.order(sort_column + " " + sort_direction)
+    @income = AccountingTransaction.income.order(params[:sort])
+    @expenses = AccountingTransaction.expense.order(params[:sort])
   end
 
   def show
@@ -46,6 +47,14 @@ class AccountingTransactionsController < ApplicationController
 
     def accounting_transaction_params
       params.require(:accounting_transaction).permit(:notes, :ammount, :p_method, :category, :for, :reff_number, :property_id)
+    end
+
+    def sort_column
+      AccountingTransaction.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    end
+  
+    def sort_direction
+     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
 end

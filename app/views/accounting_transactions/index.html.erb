@@ -19,16 +19,18 @@
     
     <table class="table table-hover">
     <tr>
-      <th>Type</th>
+      <th><%= sortable "created_at", "Date" %></th>
+      <th><%= sortable "category", "Type" %></th>
+      <th><%= sortable "ammount", "Ammount"%></th>
       <th>For</th>
-      <th>Ammount</th>
       <th>Property</th>
     </tr>
     <% @transactions.each do |transaction| %>
     <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+      <td><%= transaction.created_at.strftime("%m/%d/%Y") %></td>
       <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+      <td>$<%= transaction.ammount %></td>
       <td><%= transaction.for %></td>
-      <td><%= link_to transaction.ammount, transaction %></td>
       <td><%= link_to transaction.property.address, transaction.property %></td>
     </tr>
     <% end %>
