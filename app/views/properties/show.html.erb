@@ -66,7 +66,7 @@
   <ul class="nav nav-pills">
     <li class=""><%= link_to 'Update Property', edit_property_path(@property) %></li>
     <li class="">
-        <%= link_to 'Delete', @property, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', @property, method: :delete, data: { confirm: 'Are you sure? Deleting a property will completly remove a property and ALL associated data, including any tenants, accounting or issues created against it. There is no undo. Please make sure you are careful using this.' } %>
     </li>
     <li class=""><%= link_to 'Back to All Properties', properties_path %></li>
   </ul>

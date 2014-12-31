@@ -14,9 +14,9 @@
 
 <div class="well">
 <ul class="nav nav-pills">
-    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Active </a></li>
-  <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Past</a></li>
-  <li class=""><a href="#potential" data-toggle="tab" aria-expanded="false">Potential</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Active  <div class="badge"><%= @active_tenants.count %></div></a></li>
+  <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Past <div class="badge"><%= @past_tenants.count %></div></a></li>
+  <li class=""><a href="#potential" data-toggle="tab" aria-expanded="false">Potential  <div class="badge"><%= @potential_tenants.count %></div></a></li>
   <li class=""><%= link_to 'Set Up a new Tenant', new_tenant_path %></li>
 </ul>
 </div>
@@ -28,7 +28,8 @@
         <li class="list-group-item">
             <h4><%= link_to tenant.name, tenant %></h4>
             <h5><%= link_to tenant.property.address, tenant.property %></h5>
-            <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
+            <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a></h6>
+            <h6><%= tenant.phone %></h6>
         </li>
     <% end %>
     </ul>
@@ -39,7 +40,8 @@
         <li class="list-group-item">
             <h4><%= link_to tenant.name, tenant %></h4>
             <h5><%= link_to tenant.property.address, tenant.property %></h5>
-            <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
+            <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a></h6>
+            <h6><%= tenant.phone %></h6>
         </li>
     <% end %>
         </ul>
@@ -50,7 +52,8 @@
         <li class="list-group-item">
             <h4><%= link_to tenant.name, tenant %></h4>
             <h5><%= link_to tenant.property.address, tenant.property %></h5>
-            <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a>  |  <%= tenant.phone %></h6>
+            <h6><a href="mailto:<%= tenant.email %>"><%= tenant.email %></a></h6>
+            <h6><%= tenant.phone %></h6>
         </li>
     <% end %>
         </ul>

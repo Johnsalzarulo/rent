@@ -8,6 +8,39 @@
     </div>
   </div>
 
+<% elsif current_landlord.properties.occupied.count < 1 %>
+
+<div class="well">
+<ul class="nav nav-pills">
+    <li class="active"><a href="#alltransactions" data-toggle="tab" aria-expanded="true">Occupied <div class="badge"><%= @occupied.count %></div></a></li>
+  <li class=""><a href="#vacant" data-toggle="tab" aria-expanded="false">Vacant <div class="badge"><%= @vacant.count %></div></a></li>
+  <li class=""><%= link_to 'Set Up a new Property', new_property_path %></li>
+</ul>
+</div>
+
+<div id="propertiesindex" class="tab-content">
+    <div class="tab-pane fade active in" id="alltransactions"><br>
+     <div class="jumotron text-center">
+    <div class="well">
+      <h1><div class="glyphicon glyphicon-user"></div></h1>
+      <h3><strong>You don't have any occupied properties.</strong></h3>
+      <h4><strong>It could be that you have no tenants, or that the tenants you have are 'inactive'.</strong></h4>
+          <%= link_to "Visit my Tenants", tenants_path, class:"btn btn-primary"  %>
+    </div>
+  </div>
+  </div>
+  
+  <div class="tab-pane fade" id="vacant"><br>
+    <ul class="list-group">
+        <% @vacant.each do |property| %>
+               <li class="list-group-item">
+            <h4><%= link_to property.address, property %></h4>
+        </li>
+    <% end %>
+        </ul>
+
+</div>
+
 <% else %>
 
 <div class="well">

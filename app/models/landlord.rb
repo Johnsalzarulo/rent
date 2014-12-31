@@ -3,4 +3,5 @@ class Landlord < ActiveRecord::Base
 	has_many :properties
 	has_many :tenants, through: :properties
 	has_many :issues, through: :properties 
+	has_many :accounting_transactions, through: :properties
 end

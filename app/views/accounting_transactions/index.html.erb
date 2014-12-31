@@ -1,60 +1,102 @@
-<div class="well">
-<ul class="nav nav-pills">
-    <li class="active"><a href="#alltransactions" data-toggle="tab" aria-expanded="true">All <div class="badge"><%= @transactions.count %></div></a></li>
-  <li class=""><a href="#income" data-toggle="tab" aria-expanded="false">Income <div class="badge"><%= @income.count %></div></a></li>
-  <li class=""><a href="#expenses" data-toggle="tab" aria-expanded="false">Expenses <div class="badge"><%= @expenses.count %></div></a></li>
-  <li class=""><%= link_to 'New Transaction', new_accounting_transaction_path %></li>
-</ul>
-</div>
+<% if current_landlord.accounting_transactions.count < 1 %>
 
-<ul class="list-group">
-  <li class="list-group-item list-group-item-success">Income: <%= @income.sum(:ammount) %></li>
-  <li class="list-group-item list-group-item-danger">Expenses: <%= @expenses.sum(:ammount) %></li>
-  <li class="list-group-item list-group-item-info">Net: <%= @income.sum(:ammount) - @expenses.sum(:ammount)  %></li>
-</ul>
+        <div class="jumotron text-center">
+          <div class="well">
+            <h1><div class="glyphicon glyphicon-usd"></div></h1>
+            <h3><strong>You don't have any transactions yet.</strong></h3>
+                <%= link_to "Enter a new Transaction", new_accounting_transaction_path, class:"btn btn-primary"  %>
+          </div>
+        </div>
 
-<div id="propertiesindex" class="tab-content">
 
-    <div class="tab-pane fade active in" id="alltransactions"><br>
+<% else %>
+
+
+
+  <div class="well">
+  <ul class="nav nav-pills">
+      <li class="active"><a href="#alltransactions" data-toggle="tab" aria-expanded="true">All <div class="badge"><%= @transactions.count %></div></a></li>
+    <li class=""><a href="#income" data-toggle="tab" aria-expanded="false">Income <div class="badge"><%= @income.count %></div></a></li>
+    <li class=""><a href="#expenses" data-toggle="tab" aria-expanded="false">Expenses <div class="badge"><%= @expenses.count %></div></a></li>
+    <li class=""><%= link_to 'New Transaction', new_accounting_transaction_path %></li>
+  </ul>
+  </div>
+
+
+  <div id="propertiesindex" class="tab-content">
+
+      <div class="tab-pane fade active in" id="alltransactions"><br>
+
+      <ul class="list-group">
+         <li class="list-group-item list-group-item"><strong>Income / Expenses Overview</strong></li>
+        <li class="list-group-item list-group-item-success">Income: <%= @income.sum(:ammount) %></li>
+        <li class="list-group-item list-group-item-danger">Expenses: <%= @expenses.sum(:ammount) %></li>
+        <li class="list-group-item list-group-item-info">Net: <%= @income.sum(:ammount) - @expenses.sum(:ammount)  %></li>
+      </ul>
+      
+      <table class="table table-hover">
+      <tr>
+        <th><%= sortable "created_at", "Date" %></th>
+        <th><%= sortable "category", "Type" %></th>
+        <th><%= sortable "ammount", "Ammount"%></th>
+        <th>For</th>
+        <th>Property</th>
+      </tr>
+      <% @transactions.each do |transaction| %>
+      <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+        <td><%= transaction.created_at.strftime("%m/%d/%Y") %></td>
+        <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+        <td>$<%= transaction.ammount %></td>
+        <td><%= transaction.for %></td>
+        <td><%= link_to transaction.property.address, transaction.property %></td>
+      </tr>
+      <% end %>
+    </table>
+    </div>
+
+      <div class="tab-pane fade" id="income"><br>
+        <table class="table table-hover">
+          <tr>
+            <th><%= sortable "created_at", "Date" %></th>
+            <th><%= sortable "category", "Type" %></th>
+            <th><%= sortable "ammount", "Ammount"%></th>
+            <th>For</th>
+            <th>Property</th>
+          </tr>
+          <% @income.each do |transaction| %>
+          <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+            <td><%= transaction.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+            <td>$<%= transaction.ammount %></td>
+            <td><%= transaction.for %></td>
+            <td><%= link_to transaction.property.address, transaction.property %></td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
     
-    <table class="table table-hover">
-    <tr>
-      <th><%= sortable "created_at", "Date" %></th>
-      <th><%= sortable "category", "Type" %></th>
-      <th><%= sortable "ammount", "Ammount"%></th>
-      <th>For</th>
-      <th>Property</th>
-    </tr>
-    <% @transactions.each do |transaction| %>
-    <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
-      <td><%= transaction.created_at.strftime("%m/%d/%Y") %></td>
-      <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
-      <td>$<%= transaction.ammount %></td>
-      <td><%= transaction.for %></td>
-      <td><%= link_to transaction.property.address, transaction.property %></td>
-    </tr>
-    <% end %>
-  </table>
+    <div class="tab-pane fade" id="expenses"><br>
+            <table class="table table-hover">
+          <tr>
+            <th><%= sortable "created_at", "Date" %></th>
+            <th><%= sortable "category", "Type" %></th>
+            <th><%= sortable "ammount", "Ammount"%></th>
+            <th>For</th>
+            <th>Property</th>
+          </tr>
+          <% @expenses.each do |transaction| %>
+          <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+            <td><%= transaction.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+            <td>$<%= transaction.ammount %></td>
+            <td><%= transaction.for %></td>
+            <td><%= link_to transaction.property.address, transaction.property %></td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
+
   </div>
 
-    <div class="tab-pane fade" id="income"><br>
-    <ul class="list-group">
-    <% @income.each do |income| %>
-        <li class="list-group-item">
-            <h4><%= link_to income.ammount, income %></h4>
-        </li>
-    <% end %>
-    </ul>
-  </div>
-  
-  <div class="tab-pane fade" id="expenses"><br>
-    <ul class="list-group">
-        <% @expenses.each do |expense| %>
-               <li class="list-group-item">
-            <h4><%= link_to expense.ammount, expense %></h4>
-        </li>
-    <% end %>
-        </ul>
 
-</div>
-
+<% end %>
