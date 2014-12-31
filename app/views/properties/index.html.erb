@@ -1,9 +1,10 @@
+<div class="container">
+
 <% if current_landlord.properties.count < 1 %>
 
   <div class="jumotron text-center">
     <div class="well">
-      <h1><div class="glyphicon glyphicon-home"></div></h1>
-      <h3><strong>You don't have any properties yet.</strong></h3>
+      <h3><strong>You don't have any properties yet.</strong></h3><br>
           <%= link_to "Set Up a Property", new_property_path, class:"btn btn-primary"  %>
     </div>
   </div>
@@ -22,9 +23,8 @@
     <div class="tab-pane fade active in" id="alltransactions"><br>
      <div class="jumotron text-center">
     <div class="well">
-      <h1><div class="glyphicon glyphicon-user"></div></h1>
       <h3><strong>You don't have any occupied properties.</strong></h3>
-      <h4><strong>It could be that you have no tenants, or that the tenants you have are 'inactive'.</strong></h4>
+      <h4><strong>It could be that you have no tenants, or that the tenants you have are 'inactive'.</strong></h4><br>
           <%= link_to "Visit my Tenants", tenants_path, class:"btn btn-primary"  %>
     </div>
   </div>
@@ -78,3 +78,4 @@
 
 
 
+</div>

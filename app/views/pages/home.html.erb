@@ -1,34 +1,58 @@
-<p id="notice"><%= notice %></p>
-
-<div class="jumbotron">
-	<h1>Property management simplified.</h1>
-	<h3>Join <%= @landlord_count %> other managers who are managing <%= @property_count%> properties using this simple system.</h3>
-	<h3>Focus less on emails and paperwork, get back to what matters.</h3>
-	<p><a href="/signup" type="button" class="btn btn-success">Get Started</a></p>
+<div class="row houseback">
+	<div class="container text-center">
+		<h1 class="script">landlady</h1>
+		<h1>Property management simplified.</h1>
+		<h3>Join <%= @landlord_count %> other managers who are managing <%= @property_count%> properties using this simple system.</h3><br><br>
+		<a href="/signup" type="button" class="btn btn-success btn-lg">Get Started for Free</a><br><br><br>
+	</div>
 </div>
 
 
-<div class="row">
-	<div class="jumotron col-md-4 text-center">
-		<div class="well">
-			<h1><div class="glyphicon glyphicon-inbox"></div></h1>
-			<h3><strong>Everything in one place.</strong></h3>
-			<h4>All your properties, tenants, payments and issues in one simple place.</h4>
+<div class="row houseback2">
+
+	<div class="container">
+
+		<div class="row text-center">
+			<h1>Bring everything together.</h1><br>
 		</div>
+
+		<div class="row container">
+
+			<div class="jumotron col-sm-6 col-md-3">
+				<div class="well minorityreportwhite">
+					<img src="../assets/houses.png" class="img-responsive"></img>
+					<h2><strong>Properties</strong></h2>
+					<h4>Every address, status and detail in one simple place.</h4>
+				</div>
+			</div>
+
+			<div class="jumotron col-sm-6 col-md-3">
+				<div class="well minorityreportwhite">
+					<img src="../assets/calculator.png" class="img-responsive"></img>
+					<h2><strong>Accounting</strong></h2>
+					<h4>Dead simple income and expenses. Track all rent and expenses for all your properties.</h4>
+				</div>
+			</div>
+
+
+			<div class="jumotron col-sm-6 col-md-3">
+				<div class="well minorityreportwhite">
+					<img src="../assets/issues.png" class="img-responsive"></img>
+					<h2><strong>Issues</strong></h2>
+					<h4>Repairs, maintience and other issues tracked against properties, always know what's going on at a glance.</h4>
+				</div>
+			</div>
+
+			<div class="jumotron col-sm-6 col-md-3">
+				<div class="well minorityreportwhite">
+					<img src="../assets/tenant.png" class="img-responsive"></img>
+					<h2><strong>Tenants</strong></h2>
+					<h4>Contact information, notes and more for every tenant.</h4>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
 
-	<div class="jumotron col-md-4 text-center" >
-		<div class="well">
-			<h1><div class="glyphicon glyphicon-envelope"></div></h1>
-			<h3><strong>Even handles your conversations.</strong></h3>
-			<h4>SMS conversations with tenants in one archivable place.</h4>
-		</div>
-	</div>
-
-	<div class="jumotron col-md-4 text-center" >
-		<div class="well">
-			<h1><div class="glyphicon glyphicon-asterisk"></div></h1>
-			<h3><strong>Simplicity and clarity.</strong></h3>
-			<h4>Know what's going on in a glance. From rent payments to repairs and more.</h4>
-		</div>
 </div>

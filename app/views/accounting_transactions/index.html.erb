@@ -1,9 +1,10 @@
+<div class="container">
+
 <% if current_landlord.accounting_transactions.count < 1 %>
 
         <div class="jumotron text-center">
           <div class="well">
-            <h1><div class="glyphicon glyphicon-usd"></div></h1>
-            <h3><strong>You don't have any transactions yet.</strong></h3>
+            <h3><strong>You don't have any transactions yet.</strong></h3><br>
                 <%= link_to "Enter a new Transaction", new_accounting_transaction_path, class:"btn btn-primary"  %>
           </div>
         </div>
@@ -100,3 +101,5 @@
 
 
 <% end %>
+
+</div>

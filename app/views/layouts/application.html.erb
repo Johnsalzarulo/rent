@@ -17,9 +17,9 @@
         <span class="icon-bar"></span>
       </button>
       <% if current_landlord %>
-      <a href="/dashboard" class="navbar-brand"><div class="glyphicon glyphicon-home"></div></a></a>
+      <a href="/dashboard" class="navbar-brand"><div>Home</div></a></a>
       <% else %>
-      <a href="../" class="navbar-brand"><div class="glyphicon glyphicon-home"></div></a></a>
+      <a href="../" class="navbar-brand"><div class="script">landlady</div></a></a>
       <% end %>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
@@ -45,10 +45,7 @@
 </header>
 
 
-<div class="container">
-
 	<%= yield %>
-</div>
 
 </body>
 </html>
