@@ -11,6 +11,8 @@ class PagesController < ApplicationController
 
 
 	def loggedout
+	end
 
+	def export
 	end
 end
