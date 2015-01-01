@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/dashboard' => 'pages#dashboard'
   get '/loggedout' => 'pages#loggedout'
-    get '/export' => 'pages#export'
+  get '/export' => 'pages#export'
+  get '/about' => 'pages#about'
 
   # RESOURCES
   resources :rent_payments

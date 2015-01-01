@@ -15,10 +15,10 @@
     </li>
 
       <% @property.tenants.active.each do |tenant|%>
-      <li class="list-group-item">
-      <strong>Tenant: </strong> <%= link_to tenant.name, tenant_path(tenant.id) %>
+      <a class="list-group-item" href="<%= tenant_path(tenant.id)%>">
+      <strong>Tenant: </strong> <%= tenant.name %>
+      </a>
       <% end %>
-      </li>
 
   </ul>
 

@@ -16,21 +16,21 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label 'Mailing address' %><br>
+    <label>Mailing Address <small>(This should be where you recieve bills.)</small></label><br>
     <%= f.text_field :address, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label 'email - This is also used for login' %><br>
+    <label>Email <small>(This is also used as your login.)</small></label><br>
     <%= f.text_field :email, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label 'phone - This is the number tenants should use to contact you.' %><br>
+    <label>Phone Number <small>(This is the number tenants should use to contact you.)</small></label><br>
     <%= f.telephone_field :phone, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :password %><br>
+    <%= f.label 'Password' %><br>
     <%= f.password_field :password, class: "form-control" %><br>
-    <%= f.label 'Confirm Password:' %><br>
+    <%= f.label 'Confirm Password' %><br>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
   <div class="actions">

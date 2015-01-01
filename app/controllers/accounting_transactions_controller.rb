@@ -5,6 +5,7 @@ class AccountingTransactionsController < ApplicationController
     @transactions = AccountingTransaction.order(sort_column + " " + sort_direction)
     @income = AccountingTransaction.income.order(params[:sort])
     @expenses = AccountingTransaction.expense.order(params[:sort])
+    @pending = AccountingTransaction.pending.order(params[:sort])
   end
 
   def show

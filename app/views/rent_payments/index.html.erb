@@ -1,0 +1,9 @@
+<div class="container">
+
+	<h1>All Rents Due</h1>
+
+<% current_landlord.rent_payments.each do |rent| %>
+
+<%= rent.property %>
+<% end %>
+</div>

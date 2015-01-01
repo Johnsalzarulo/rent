@@ -1,25 +1,43 @@
 
 <div class="container">
-<p id="notice"><%= notice %></p>
 
-<h1><%= @tenant.name %><br>
-<h3><%= @tenant.property.address %></h3>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <%= @tenant.email %><br>
-  <%= @tenant.phone %><br>
-  <%= @tenant.status %><br>
-</p>
+  <h4 class="text-center"><%= @tenant.name %></h4>
 
 
-<div class="well">
-  <ul class="nav nav-pills">
-    <li class=""><%= link_to 'Edit', edit_tenant_path(@tenant) %></li>
-    <li class="">
-        <%= link_to 'Delete', @tenant, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <ul class="list-group">
+
+    <a class="list-group-item" href="<%= property_path(@tenant.property.id)%>">
+      <strong><%= @tenant.property.address %>
+    </a>
+
+    <li class="list-group-item">
+      <strong>Rent is due: </strong><%= @tenant.property.rdue.ordinalize %> of each month.
     </li>
-    <li class=""><%= link_to 'Back to All Tenants', tenants_path %></li>
+
+    <a class="list-group-item" href="mailto:<%= @tenant.email%>">
+      <%= @tenant.email %>
+    </a>
+
+    <li class="list-group-item">
+      <%= @tenant.phone %>
+    </li>
+
+    <li class="list-group-item">
+      <%= @tenant.status.titleize %>
+    </li>
+
   </ul>
-</div>
+
+  <div class="well">
+    <ul class="nav nav-pills">
+      <li class=""><%= link_to 'Edit', edit_tenant_path(@tenant) %></li>
+      <li class="">
+          <%= link_to 'Delete', @tenant, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      <li class=""><%= link_to 'Back to All Tenants', tenants_path %></li>
+    </ul>
+  </div>
 
 </div>
