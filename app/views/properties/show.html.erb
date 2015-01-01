@@ -10,6 +10,10 @@
       <strong>Monthly Rent: </strong><%= @property.rent %>
     </li>
 
+    <li class="list-group-item">
+      <strong>Rent is due: </strong><%= @property.rdue.ordinalize %> of each month.
+    </li>
+
       <% @property.tenants.active.each do |tenant|%>
       <li class="list-group-item">
       <strong>Tenant: </strong> <%= link_to tenant.name, tenant_path(tenant.id) %>
