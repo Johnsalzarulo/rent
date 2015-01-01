@@ -1,12 +1,12 @@
 <div class="panel-footer">
-<%= form_for([@property, @property.notes.build]) do |f| %>
-  <div class="row">
-    <div class="form-group col-xs-8 push">
-      <%= f.text_field :text, class:'form-control', placeholder:'Enter note text...' %> 
-    </div>
-    <div class="form-group col-xs-4 text-right">
-    <%= f.submit class:"btn btn-primary" %>
-    </div>
-  <% end %>
-  </div>
+	<%= form_for([@property, @property.notes.build]) do |f| %>
+	  <div class="row">
+	    <div class="form-group col-xs-8 push">
+	      <%= f.text_field :text, class:'form-control input-sm', placeholder:'Enter note text...' %> 
+	    </div>
+	    <div class="form-group col-xs-4 text-right">
+	    	<%= f.submit class:"btn btn-primary input-sm" %>
+	  	</div>
+	  </div>
+	<% end %>
 </div>

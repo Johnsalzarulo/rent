@@ -9,6 +9,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @issue = current_landlord.issues.new
   end
 
   def new

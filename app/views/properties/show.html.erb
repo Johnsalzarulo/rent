@@ -1,80 +1,72 @@
 <div class="container">
 
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
   <h4 class="text-center"><%= @property.address %></h4>
 
-<h5>Total Expenses: <%= @property.accounting_transactions.expense.sum(:ammount) %></h5>
+  <ul class="list-group">
 
-<h5>Total Income: <%= @property.accounting_transactions.income.sum(:ammount) %></h5>
-
-<h5>Net: <%= @property.accounting_transactions.income.sum(:ammount) - @property.accounting_transactions.expense.sum(:ammount)  %></h5>
-
-<ul class="list-group">
-
-  <li class="list-group-item">
-    <strong>Monthly Rent: </strong><%= @property.rent %>
-  </li>
-
-    <% @property.tenants.active.each do |tenant|%>
     <li class="list-group-item">
-    <strong>Tenant: </strong> <%= link_to tenant.name, tenant_path(tenant.id) %>
-    <% end %>
+      <strong>Monthly Rent: </strong><%= @property.rent %>
     </li>
 
-</ul>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Active Issues
-    </div>
-    <div class="panel-body">
-      <% @property.issues.not_complete.each do |issue| %>
-      <%= issue.note %><br>
+      <% @property.tenants.active.each do |tenant|%>
+      <li class="list-group-item">
+      <strong>Tenant: </strong> <%= link_to tenant.name, tenant_path(tenant.id) %>
       <% end %>
-    </div>
-  </div>
+      </li>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Accounting
-    </div>
-    <table class="table table-hover">
-    <tr>
-      <th>Type</th>
-      <th>For</th>
-      <th>Ammount</th>
-    </tr>
-    <% @property.accounting_transactions.each do |transaction| %>
-    <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
-      <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
-      <td><%= transaction.for %></td>
-      <td><%= link_to transaction.ammount, transaction %></td>
-    </tr>
-    <% end %>
-  </table>
-  </div>
-
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Notes
-    </div>
-      <%= render @property.notes %>
-      <%= render 'notes/form' %>
-  </div>
-
-<div class="well">
-  <ul class="nav nav-pills">
-    <li class=""><%= link_to 'Update Property', edit_property_path(@property) %></li>
-    <li class="">
-        <%= link_to 'Delete', @property, method: :delete, data: { confirm: 'Are you sure? Deleting a property will completly remove a property and ALL associated data, including any tenants, accounting or issues created against it. There is no undo. Please make sure you are careful using this.' } %>
-    </li>
-    <li class=""><%= link_to 'Back to All Properties', properties_path %></li>
   </ul>
-</div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Active Issues
+      </div>
+        <% @property.issues.not_complete.each do |issue| %>
+          <a class="list-group-item" href="<%= issue_path %>">
+              <%= issue.note %>
+          </a>
+        <% end %>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Accounting
+      </div>
+      <table class="table table-hover">
+      <tr>
+        <th>Type</th>
+        <th>For</th>
+        <th>Ammount</th>
+      </tr>
+      <% @property.accounting_transactions.each do |transaction| %>
+      <tr class='<%= transaction.category == 'expense' ? "danger" : "success"%>'>
+        <td><%= transaction.category == 'expense' ? "-" : "+"%></td>
+        <td><%= transaction.for %></td>
+        <td><%= link_to transaction.ammount, transaction %></td>
+      </tr>
+      <% end %>
+    </table>
+    </div>
 
 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Notes
+      </div>
+        <%= render @property.notes %>
+        <%= render 'notes/form' %>
+    </div>
+
+  <div class="well">
+    <ul class="nav nav-pills">
+      <li class=""><%= link_to 'Update Property', edit_property_path(@property) %></li>
+      <li class="">
+          <%= link_to 'Delete', @property, method: :delete, data: { confirm: 'Are you sure? Deleting a property will completly remove a property and ALL associated data, including any tenants, accounting or issues created against it. There is no undo. Please make sure you are careful using this.' } %>
+      </li>
+      <li class=""><%= link_to 'Back to All Properties', properties_path %></li>
+    </ul>
+  </div>
 
 
 </div>
