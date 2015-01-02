@@ -12,10 +12,6 @@
       <strong><%= @tenant.property.address %>
     </a>
 
-    <li class="list-group-item">
-      <strong>Rent is due: </strong><%= @tenant.property.rdue.ordinalize %> of each month.
-    </li>
-
     <a class="list-group-item" href="mailto:<%= @tenant.email%>">
       <%= @tenant.email %>
     </a>
