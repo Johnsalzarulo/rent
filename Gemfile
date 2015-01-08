@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :test, :development do 
 	gem 'spring'
 	gem 'dotenv-rails'
+	gem 'rspec-rails'
+	gem "capybara"
 
 end
 

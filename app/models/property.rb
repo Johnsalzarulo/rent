@@ -7,7 +7,6 @@ class Property < ActiveRecord::Base
   has_many :accounting_transactions
 	has_many :rent_payments, through: :tenants
 
-
     def self.occupied
       select do |record| 
       	record.occupied?
@@ -22,7 +21,7 @@ class Property < ActiveRecord::Base
     end
 
 	def occupied?
-      !tenants.active.empty?
+      tenants.active.any?
 	end
 
 	def vacant?
