@@ -28,5 +28,11 @@ class Property < ActiveRecord::Base
 		tenants.active.empty?
 	end
 
+  def tenant
+    self.id = id
+    Tenant.find(property_id = id)
+  end
+
+
 
 end

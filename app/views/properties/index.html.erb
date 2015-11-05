@@ -60,6 +60,7 @@
           <% @occupied.each do |property| %>
             <a class="list-group-item" href="<%= property_path(property.id) %>">
               <h4><%= property.address %></h4>
+              <p><%= property.tenant.name %></p>
             </a>
           <% end %>
         </ul>
